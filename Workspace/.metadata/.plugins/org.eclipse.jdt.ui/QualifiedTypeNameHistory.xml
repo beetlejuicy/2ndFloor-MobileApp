@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.secondfloor.ofertame.R.layout"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.secondfloor.model.Anuncio"/>
+<fullyQualifiedTypeName name="com.secondfloor.model.Autenticacao"/>
 </qualifiedTypeNameHistroy>
