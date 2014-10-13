@@ -1,0 +1,5 @@
+package com.secondfloor.contracts;
+
+public interface Anuncio {
+	public List<Anuncios>
+}

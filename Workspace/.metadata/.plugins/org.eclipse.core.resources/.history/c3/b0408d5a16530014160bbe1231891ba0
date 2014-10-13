@@ -1,0 +1,6 @@
+package com.secondfloor.model;
+
+public class Autenticacao {
+	private String nome;
+	private String email;
+}

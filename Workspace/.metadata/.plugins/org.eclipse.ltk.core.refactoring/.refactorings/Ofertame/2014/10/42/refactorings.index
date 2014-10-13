@@ -1,0 +1,22 @@
+1413146318303	Delete elements
+1413146353573	Delete elements
+1413146355817	Delete element
+1413148268731	Extracts string 'null' into R.string.btnEntrar
+1413148302094	Extracts string 'null' into R.string.btnRegistrar
+1413148316889	Extracts string 'null' into R.string.btnTwitter
+1413148336763	Extracts string 'null' into R.string.btnGooglePlus
+1413148349548	Extracts string 'null' into R.string.btnFacebook
+1413148914355	Extracts string 'null' into R.string.lblNome
+1413148960627	Extracts string 'null' into R.string.lblEmail
+1413149237492	Extracts string 'null' into R.string.hintTxtNome
+1413149257521	Extracts string 'null' into R.string.hintTxtEmail
+1413149619887	Extracts string 'null' into R.string.lblSenha
+1413151540702	Extracts string 'null' into R.string.btnPesquisar
+1413151719654	Extracts string 'null' into R.string.hintTxtPesquisarOferta
+1413151860284	Extracts string 'null' into R.string.lblTitulo
+1413160349759	Rename package 'com.secondfloor.models'
+1413210987309	Extracts string 'null' into R.string.lblEndereco
+1413231533717	Rename type 'Cadastro'
+1413231608215	Encapsulate field 'preco'
+1413233182435	Rename compilation unit 'Anuncios.java'
+1413233235438	Rename compilation unit 'Anuncio.java'
