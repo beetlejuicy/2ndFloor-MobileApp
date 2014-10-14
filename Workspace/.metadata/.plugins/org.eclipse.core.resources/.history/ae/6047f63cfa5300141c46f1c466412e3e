@@ -1,0 +1,11 @@
+package com.secondfloor.repository;
+
+import java.util.List;
+
+import com.secondfloor.model.Anuncio;
+
+public interface RepositorioAnuncio {
+
+	List<Anuncio> pesquisarAnuncioPorTitulo(String titulo);
+
+}

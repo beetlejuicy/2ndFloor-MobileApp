@@ -48,3 +48,4 @@
 1413315869785	Convert local variable 'ratingInteresseOferta' to field
 1413316251639	Move compilation unit
 1413327481292	Convert local variable 'idAnuncio' to field
+1413330201757	Rename type 'RepositorioAnuncio'
