@@ -30,6 +30,8 @@ public class DetalheOferta extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detalhe_oferta);
 
+		//servicoAnuncio = new ServiceAnuncioImpl();
+		
 		txtTitulo = (Text) findViewById(R.id.txtDetalheTitulo);
 		txtData = (Text) findViewById(R.id.txtDetalheData);
 		txtEndereco = (Text) findViewById(R.id.txtDetalheEndereco);

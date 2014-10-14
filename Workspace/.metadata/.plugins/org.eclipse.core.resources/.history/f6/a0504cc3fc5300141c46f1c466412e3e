@@ -8,13 +8,9 @@ import android.widget.RatingBar.OnRatingBarChangeListener;
 
 import com.secondfloor.contracts.ServiceAnuncio;
 import com.secondfloor.model.Anuncio;
-import com.secondfloor.repository.RepositoryAnuncio;
-import com.secondfloor.services.ServiceAnuncioImpl;
+import com.secondfloor.ofertame.R;
 
 public class DetalheOferta extends Activity{
-	private RepositoryAnuncio repositorio;
-	private ServiceAnuncio servicoAnuncio = new ServiceAnuncioImpl(repositorio);
-	
 	private Text txtTitulo;
 	private Text txtData;
 	private Text txtEndereco;
@@ -22,7 +18,7 @@ public class DetalheOferta extends Activity{
 	private RatingBar ratingAnunciante;
 	private Text txtAnunciante;
 	private RatingBar ratingInteresseOferta;
-
+	private ServiceAnuncio servicoAnuncio;
 	private int idAnuncio;
 
 	@Override
@@ -30,6 +26,8 @@ public class DetalheOferta extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detalhe_oferta);
 
+		//servicoAnuncio = new ServiceAnuncioImpl();
+		
 		txtTitulo = (Text) findViewById(R.id.txtDetalheTitulo);
 		txtData = (Text) findViewById(R.id.txtDetalheData);
 		txtEndereco = (Text) findViewById(R.id.txtDetalheEndereco);
@@ -40,7 +38,7 @@ public class DetalheOferta extends Activity{
 		ratingInteresseOferta.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
 			@Override
 			public void onRatingChanged(RatingBar ratingBar, float rating,boolean fromUser) {
-				servicoAnuncio.publicarInteresseOferta(idAnuncio, rating);
+				//servicoAnuncio.publicarInteresseOferta(idAnuncio, rating);
 			}
 		});
 		
