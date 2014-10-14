@@ -1,0 +1,38 @@
+import org.w3c.dom.Text;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.RatingBar;
+
+import com.secondfloor.ofertame.R;
+
+
+public class DetalheOferta extends Activity{
+	private Text txtTitulo;
+	private Text txtData;
+	private Text txtEndereco;
+	private Text txtFornecedor;
+	private RatingBar ratingAnunciante;
+	private Text txtAnunciante;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_detalhe_oferta);
+		
+		txtTitulo = (Text) findViewById(R.id.txtDetalheTitulo);
+		txtData = (Text) findViewById(R.id.txtDetalheData);
+		txtEndereco = (Text) findViewById(R.id.txtDetalheEndereco);
+		txtFornecedor = (Text) findViewById(R.id.txtDetalheFornecedor);
+		txtAnunciante = (Text) findViewById(R.id.txtDetalheAnunciante);
+		ratingAnunciante = (RatingBar) findViewById(R.id.ratingDetalheAnunciante);
+		RatingBar ratingInteresseOferta = (RatingBar) findViewById(R.id.ratingDetalheInteresseOferta);
+	}
+	
+	private void fillScreen(Anuncio anuncio)
+	{
+				
+	}
+	}
+}

@@ -29,3 +29,21 @@
 1413249911995	Convert local variable 'txtEmail' to field
 1413250174556	Convert local variable 'txtSenha' to field
 1413250178193	Convert local variable 'btnLogar' to field
+1413315216431	Rename field 'textView2'
+1413315230219	Rename field 'textView6'
+1413315239312	Rename field 'textView12'
+1413315249563	Rename field 'textView4'
+1413315269352	Rename field 'textView8'
+1413315322649	Rename field 'ratingBar1'
+1413315336592	Rename field 'ratingBar2'
+1413315432171	Rename field 'txtDetalheFornecedor'
+1413315512055	Rename field 'ratingAnunciante'
+1413315524355	Rename field 'ratingInteresseOferta'
+1413315822194	Convert local variable 'txtTitulo' to field
+1413315852493	Convert local variable 'txtData' to field
+1413315857369	Convert local variable 'txtEndereco' to field
+1413315860910	Convert local variable 'txtFornecedor' to field
+1413315864035	Convert local variable 'ratingAnunciante' to field
+1413315866921	Convert local variable 'txtAnunciante' to field
+1413315869785	Convert local variable 'ratingInteresseOferta' to field
+1413316251639	Move compilation unit
