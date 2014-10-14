@@ -39,6 +39,7 @@ public class DetalheOferta extends Activity{
 				//servicoAnuncio.publicarInteresseOferta(idAnuncio, rating);
 			}
 		});
+		
 	}
 	
 	private void fillScreen(Anuncio anuncio)

@@ -34,11 +34,13 @@ public class DetalheOferta extends Activity{
 		ratingAnunciante = (RatingBar) findViewById(R.id.ratingDetalheAnunciante);
 		ratingInteresseOferta = (RatingBar) findViewById(R.id.ratingDetalheInteresseOferta);
 		ratingInteresseOferta.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+			
 			@Override
 			public void onRatingChanged(RatingBar ratingBar, float rating,boolean fromUser) {
 				//servicoAnuncio.publicarInteresseOferta(idAnuncio, rating);
 			}
 		});
+		
 	}
 	
 	private void fillScreen(Anuncio anuncio)

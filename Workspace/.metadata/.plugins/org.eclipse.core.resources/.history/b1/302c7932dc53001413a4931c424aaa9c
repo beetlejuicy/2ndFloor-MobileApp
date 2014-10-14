@@ -4,9 +4,7 @@ import org.w3c.dom.Text;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.RatingBar;
-import android.widget.RatingBar.OnRatingBarChangeListener;
 
-import com.secondfloor.contracts.ServiceAnuncio;
 import com.secondfloor.model.Anuncio;
 import com.secondfloor.ofertame.R;
 
@@ -19,7 +17,6 @@ public class DetalheOferta extends Activity{
 	private RatingBar ratingAnunciante;
 	private Text txtAnunciante;
 	private RatingBar ratingInteresseOferta;
-	private ServiceAnuncio servicoAnuncio;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +30,8 @@ public class DetalheOferta extends Activity{
 		txtAnunciante = (Text) findViewById(R.id.txtDetalheAnunciante);
 		ratingAnunciante = (RatingBar) findViewById(R.id.ratingDetalheAnunciante);
 		ratingInteresseOferta = (RatingBar) findViewById(R.id.ratingDetalheInteresseOferta);
-		ratingInteresseOferta.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
-			@Override
-			public void onRatingChanged(RatingBar ratingBar, float rating,boolean fromUser) {
-				//servicoAnuncio.publicarInteresseOferta(idAnuncio, rating);
-			}
-		});
+		
+		
 	}
 	
 	private void fillScreen(Anuncio anuncio)
