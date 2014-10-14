@@ -26,3 +26,6 @@
 1413241779518	Rename field 'listView1'
 1413248360731	Convert local variable 'lstViewOfertas' to field
 1413248376458	Convert local variable 'filtroTitulo' to field
+1413249911995	Convert local variable 'txtEmail' to field
+1413250174556	Convert local variable 'txtSenha' to field
+1413250178193	Convert local variable 'btnLogar' to field

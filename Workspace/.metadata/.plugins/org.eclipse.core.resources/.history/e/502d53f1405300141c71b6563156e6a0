@@ -1,0 +1,27 @@
+package com.secondfloor.ofertame;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class Entrar extends Activity{
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_entrar);
+        
+        TextView txtEmail = (TextView) findViewById(R.id.txtEmail);
+        TextView txtSenha = (TextView) findViewById(R.id.txtSenha);
+        Button btnLogar = (Button) findViewById(R.id.btnLogar);
+        btnLogar.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		})
+	}
+}
