@@ -19,7 +19,6 @@ public class DetalheOferta extends Activity{
 	private Text txtAnunciante;
 	private RatingBar ratingInteresseOferta;
 	private ServiceAnuncio servicoAnuncio;
-	private int idAnuncio;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +45,7 @@ public class DetalheOferta extends Activity{
 	}
 	
 	private void loadScreen() {
-		//http://julianacora.blogspot.com.br/2012/04/android-passagem-de-parametros-entre.html
-		//Recuperando e trocando parametros entre activitys
-		idAnuncio = 0;
+		int idAnuncio = 0;
 		Anuncio anuncio = servicoAnuncio.pesquisarAnuncioPorId(idAnuncio);
 		fillScreen(anuncio);
 	}

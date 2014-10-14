@@ -47,3 +47,4 @@
 1413315866921	Convert local variable 'txtAnunciante' to field
 1413315869785	Convert local variable 'ratingInteresseOferta' to field
 1413316251639	Move compilation unit
+1413327481292	Convert local variable 'idAnuncio' to field

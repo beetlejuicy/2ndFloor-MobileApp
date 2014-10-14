@@ -10,6 +10,7 @@ import com.secondfloor.contracts.ServiceAnuncio;
 import com.secondfloor.model.Anuncio;
 import com.secondfloor.ofertame.R;
 
+
 public class DetalheOferta extends Activity{
 	private Text txtTitulo;
 	private Text txtData;
@@ -19,14 +20,11 @@ public class DetalheOferta extends Activity{
 	private Text txtAnunciante;
 	private RatingBar ratingInteresseOferta;
 	private ServiceAnuncio servicoAnuncio;
-	private int idAnuncio;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detalhe_oferta);
-
-		//servicoAnuncio = new ServiceAnuncioImpl();
 		
 		txtTitulo = (Text) findViewById(R.id.txtDetalheTitulo);
 		txtData = (Text) findViewById(R.id.txtDetalheData);
@@ -41,18 +39,8 @@ public class DetalheOferta extends Activity{
 				//servicoAnuncio.publicarInteresseOferta(idAnuncio, rating);
 			}
 		});
-		
-		loadScreen();
 	}
 	
-	private void loadScreen() {
-		//http://julianacora.blogspot.com.br/2012/04/android-passagem-de-parametros-entre.html
-		//Recuperando e trocando parametros entre activitys
-		idAnuncio = 0;
-		Anuncio anuncio = servicoAnuncio.pesquisarAnuncioPorId(idAnuncio);
-		fillScreen(anuncio);
-	}
-
 	private void fillScreen(Anuncio anuncio)
 	{
 		txtTitulo.setTextContent(anuncio.getTitulo());
