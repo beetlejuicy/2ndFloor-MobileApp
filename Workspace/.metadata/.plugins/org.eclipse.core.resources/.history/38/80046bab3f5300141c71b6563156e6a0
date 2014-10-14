@@ -20,14 +20,7 @@ public class BuscaOfertas extends Activity {
         filtroTitulo = (TextView) findViewById(R.id.txtFiltroTitulo);
         lstViewOfertas = (ListView) findViewById(R.id.lstViewOfertas);
         btnPesquisar = (Button) findViewById(R.id.btnPesquisar);
-        btnPesquisar.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// implementar aqui a rotina de pesquisa e preenchimento o listView
-				
-			}
-		});
+        
     }
 
 

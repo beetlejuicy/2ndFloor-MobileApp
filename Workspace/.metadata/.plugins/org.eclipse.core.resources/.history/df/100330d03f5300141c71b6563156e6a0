@@ -27,7 +27,7 @@ public class BuscaOfertas extends Activity {
 				// implementar aqui a rotina de pesquisa e preenchimento o listView
 				
 			}
-		});
+		})
     }
 
 

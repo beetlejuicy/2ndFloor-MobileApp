@@ -24,3 +24,5 @@
 1413239754750	Rename resource 'ic_launcher-web.png'
 1413241589991	Rename field 'editText1'
 1413241779518	Rename field 'listView1'
+1413248360731	Convert local variable 'lstViewOfertas' to field
+1413248376458	Convert local variable 'filtroTitulo' to field
