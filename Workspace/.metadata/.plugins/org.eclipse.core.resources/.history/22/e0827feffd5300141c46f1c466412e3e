@@ -1,0 +1,5 @@
+package com.secondfloor.repositoryFake;
+
+public class RepositoryAnuncioFake {
+
+}
