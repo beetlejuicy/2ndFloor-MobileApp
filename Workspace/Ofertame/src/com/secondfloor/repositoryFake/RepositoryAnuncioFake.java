@@ -13,12 +13,6 @@ public class RepositoryAnuncioFake implements RepositoryAnuncio{
 		return null;
 	}
 
-	@Override
-	public Anuncio pesquisarAnuncioPorId(int id) {
-		Anuncio anuncio = new Anuncio();
-		
-		return null;
-	}
 
 	@Override
 	public void publicarInteresseOferta(int idAnuncio, float interesse) {

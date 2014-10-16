@@ -16,4 +16,6 @@
 <fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="android.widget.RatingBar.OnRatingBarChangeListener"/>
 <fullyQualifiedTypeName name="com.secondfloor.contracts.ServiceAnuncio"/>
+<fullyQualifiedTypeName name="com.secondfloor.repository.RepositorioAnuncio"/>
+<fullyQualifiedTypeName name="com.secondfloor.repository.RepositoryAnuncio"/>
 </qualifiedTypeNameHistroy>
