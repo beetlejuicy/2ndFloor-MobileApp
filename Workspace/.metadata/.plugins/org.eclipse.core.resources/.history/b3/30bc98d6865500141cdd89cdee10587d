@@ -16,6 +16,11 @@ public class ServiceAnuncioImpl implements ServiceAnuncio{
 	}
 
 	@Override
+	public Anuncio pesquisarAnuncioPorId(int id) {
+		return repositorioAnuncio.pesquisarAnuncioPorId(id);
+	}
+
+	@Override
 	public void publicarInteresseOferta(int idAnuncio, float interesse) {
 		repositorioAnuncio.publicarInteresseOferta(idAnuncio,interesse);
 	}

@@ -1,0 +1,22 @@
+package com.secondfloor.repositoryImpl;
+
+import java.util.List;
+
+import com.secondfloor.model.Anuncio;
+import com.secondfloor.repository.RepositoryAnuncio;
+
+public class RepositoryAnuncioImpl implements RepositoryAnuncio {
+
+	@Override
+	public List<Anuncio> pesquisarAnuncioPorTitulo(String titulo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void publicarInteresseOferta(int idAnuncio, float interesse) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

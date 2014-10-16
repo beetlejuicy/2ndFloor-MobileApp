@@ -1,0 +1,37 @@
+package com.secondfloor.repositoryImpl;
+
+import java.util.List;
+
+import com.secondfloor.AnuncioRest;
+import com.secondfloor.messages.EncontrarOfertaResponse;
+import com.secondfloor.model.Anuncio;
+import com.secondfloor.repository.RepositoryAnuncio;
+
+public class RepositoryAnuncioImpl implements RepositoryAnuncio {
+
+	private AnuncioRest anuncioRest;
+	
+	public void RepositoryAnuncioImpl()
+	{
+		anuncioRest = new AnuncioRest();
+	}
+
+	@Override
+	public List<Anuncio> pesquisarAnuncioPorTitulo(String titulo) {
+		List<Anuncio> anuncios = new ArrayList<Anuncio>(); 
+		EncontrarOfertaResponse response = anuncioRest.EncontrarOfertasPorNomeProduto(titulo);
+		if (response.getSuccess()) {
+			
+			
+			
+		}		
+		return anuncios;
+	}
+
+	@Override
+	public void publicarInteresseOferta(int idAnuncio, float interesse) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
