@@ -12,11 +12,10 @@ import android.widget.TextView;
 import com.secondfloor.contracts.ServiceAnuncio;
 import com.secondfloor.model.Anuncio;
 import com.secondfloor.repository.RepositoryAnuncio;
-import com.secondfloor.repositoryFake.RepositoryAnuncioFake;
 import com.secondfloor.services.ServiceAnuncioImpl;
 
 public class BuscaOfertas extends Activity {
-	private RepositoryAnuncio repositorio = new RepositoryAnuncioFake();
+	private RepositoryAnuncio repositorio;
 	private ServiceAnuncio servicoAnuncio = new ServiceAnuncioImpl(repositorio);
 	
 	private Button btnPesquisar;

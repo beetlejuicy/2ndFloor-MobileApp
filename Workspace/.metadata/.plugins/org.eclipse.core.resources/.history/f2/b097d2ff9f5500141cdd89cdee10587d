@@ -20,7 +20,7 @@ public class AnuncioRest {
 	
 	public void AnuncioRest()
 	{
-		//urlServerBase ="http://localhost:8080/web/";
+		urlServerBase ="http://localhost:8080/web/";
 		urlServerBase = "http://localhost:1886/Service.svc/web/";
 	}
 	

@@ -1,6 +1,5 @@
 package com.secondfloor.repositoryFake;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.secondfloor.model.Anuncio;
@@ -10,9 +9,8 @@ public class RepositoryAnuncioFake implements RepositoryAnuncio{
 
 	@Override
 	public List<Anuncio> pesquisarAnuncioPorTitulo(String titulo) {
-		List<Anuncio> anuncios = new ArrayList<Anuncio>();
 		
-		return anuncios;
+		return null;
 	}
 
 

@@ -16,18 +16,18 @@ import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 
 public class AnuncioRest {
-	private String urlServerBase;
+	private String urlServer;
 	
 	public void AnuncioRest()
 	{
-		//urlServerBase ="http://localhost:8080/web/";
-		urlServerBase = "http://localhost:1886/Service.svc/web/";
+		//urlServer ="http://localhost:8080/web/";
+		urlServer = "http://localhost:1886/Service.svc/web/";
 	}
 	
 	public EncontrarOfertaResponse EncontrarOfertasPorNomeProduto(String nomeProduto)
 	{
 		final String route = "EncontrarOfertaPor";
-		String http = this.urlServerBase + route;
+		String http = this.urlServer + route;
 		
 		EncontrarOfertaResponse response = new EncontrarOfertaResponse();
 		StringBuilder sb = new StringBuilder(); 

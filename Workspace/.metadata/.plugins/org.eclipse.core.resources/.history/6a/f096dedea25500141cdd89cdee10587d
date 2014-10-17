@@ -27,13 +27,14 @@ public class RepositoryAnuncioImpl implements RepositoryAnuncio {
 				Anuncio anuncio = new Anuncio();
 				anuncio.setTitulo(oferta.getNomeProduto());
 				anuncio.setAnunciante(oferta.getAnuncianteRazaoSocial());
-				anuncio.setClassificacaoAnunciante(Float.parseFloat(oferta.getAnunciantePontuacao()));
-				anuncio.setEndereco(formatarEndereco(oferta));
+				anuncio.setClassificacaoAnunciante(Float.parseFloat(oferta
+						.getAnunciantePontuacao()));
 				anuncio.setFornecedor(oferta.getFabricante());
 				anuncio.setPreco(Float.parseFloat(oferta.getValor()));
 				// anuncio.setDataOferta(dataOferta);
 				anuncios.add(anuncio);
 			}
+
 		}
 		return anuncios;
 	}
@@ -66,9 +67,3 @@ public class RepositoryAnuncioImpl implements RepositoryAnuncio {
 	}
 
 }
-
-/*
- * Propriedades do de OfertaDTO ofertaId referencia nomeProduto descricao
- * fabricante valor logradouro numero complemento bairro cidade estado cep
- * anuncianteId anuncianteRazaoSocial anunciantePontuacao
- */

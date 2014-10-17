@@ -12,7 +12,7 @@ public class RepositoryAnuncioFake implements RepositoryAnuncio{
 	public List<Anuncio> pesquisarAnuncioPorTitulo(String titulo) {
 		List<Anuncio> anuncios = new ArrayList<Anuncio>();
 		
-		return anuncios;
+		return null;
 	}
 
 
