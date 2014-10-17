@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="com.secondfloor.model.Anuncio"/>
 <fullyQualifiedTypeName name="com.secondfloor.model.Autenticacao"/>
 <fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
@@ -18,4 +17,11 @@
 <fullyQualifiedTypeName name="com.secondfloor.contracts.ServiceAnuncio"/>
 <fullyQualifiedTypeName name="com.secondfloor.repository.RepositorioAnuncio"/>
 <fullyQualifiedTypeName name="com.secondfloor.repository.RepositoryAnuncio"/>
+<fullyQualifiedTypeName name="java.net.ProtocolException"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.secondfloor.AnuncioRest"/>
+<fullyQualifiedTypeName name="com.secondfloor.dto.OfertaDTO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.secondfloor.repositoryFake.RepositoryAnuncioFake"/>
+<fullyQualifiedTypeName name="com.secondfloor.model.Anuncio"/>
 </qualifiedTypeNameHistroy>

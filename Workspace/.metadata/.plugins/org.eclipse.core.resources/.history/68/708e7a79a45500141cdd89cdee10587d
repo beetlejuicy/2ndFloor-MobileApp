@@ -48,10 +48,4 @@ public class Anuncio {
 	public void setPreco(Float preco) {
 		this.preco = preco;
 	}
-	public String getDataOferta() {
-		return dataOferta;
-	}
-	public void setDataOferta(String dataOferta) {
-		this.dataOferta = dataOferta;
-	}
 }

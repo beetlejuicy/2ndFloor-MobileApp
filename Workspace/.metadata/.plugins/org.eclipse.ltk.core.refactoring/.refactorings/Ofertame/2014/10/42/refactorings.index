@@ -53,3 +53,4 @@
 1413497154535	Delete elements
 1413502427945	Rename package 'com.secondfloor'
 1413509799242	Rename field 'urlServer'
+1413512562920	Encapsulate field 'dataOferta'

@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class Anuncio {
 	private String titulo;
-	private String dataOferta;
+	private Calendar dataOferta;
 	private String endereco;
 	private String fornecedor;
 	private String anunciante;
@@ -17,7 +17,12 @@ public class Anuncio {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	
+	public Calendar getDataOferta() {
+		return dataOferta;
+	}
+	public void setDataOferta(Calendar dataOferta) {
+		this.dataOferta = dataOferta;
+	}
 	public String getEndereco() {
 		return endereco;
 	}
@@ -47,11 +52,5 @@ public class Anuncio {
 	}
 	public void setPreco(Float preco) {
 		this.preco = preco;
-	}
-	public String getDataOferta() {
-		return dataOferta;
-	}
-	public void setDataOferta(String dataOferta) {
-		this.dataOferta = dataOferta;
 	}
 }

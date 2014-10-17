@@ -12,20 +12,20 @@
 		<item value="525" key="dialogHeight"/>
 		<list key="orderedProviders">
 			<item value="org.eclipse.ui.commands"/>
-			<item value="org.eclipse.ui.commands"/>
 		</list>
 		<list key="textArray">
-			<item value="gcu"/>
 			<item value="android xml"/>
 		</list>
 		<list key="orderedElements">
-			<item value="org.eclipse.jdt.ui.edit.text.java.generate.constructor.using.fields"/>
 			<item value="org.eclipse.ui.newWizard(newWizardId=com.android.ide.eclipse.editors.wizards.NewXmlFileWizard)"/>
 		</list>
 		<list key="textEntries">
 			<item value="1"/>
-			<item value="1"/>
 		</list>
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="218" key="DIALOG_Y_ORIGIN"/>
+		<item value="491" key="DIALOG_X_ORIGIN"/>
 	</section>
 	<section name="ImportExportAction">
 		<item value="org.eclipse.ui.wizards.import.FileSystem" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
