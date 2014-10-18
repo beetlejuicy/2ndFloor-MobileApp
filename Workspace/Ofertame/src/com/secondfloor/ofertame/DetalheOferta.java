@@ -51,7 +51,7 @@ public class DetalheOferta extends Activity{
 		//http://julianacora.blogspot.com.br/2012/04/android-passagem-de-parametros-entre.html
 		//Recuperando e trocando parametros entre activitys
 		idAnuncio = 0;
-		Anuncio anuncio = servicoAnuncio.pesquisarAnuncioPorId(idAnuncio);
+		Anuncio anuncio = new Anuncio();
 		fillScreen(anuncio);
 	}
 

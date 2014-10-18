@@ -25,7 +25,7 @@ public final class R {
         public static final int ic_launcher_web=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f08001a;
+        public static final int action_settings=0x7f08001b;
         public static final int btnEntrar=0x7f080004;
         public static final int btnLogar=0x7f080018;
         public static final int btnPesquisar=0x7f080006;
@@ -33,10 +33,11 @@ public final class R {
         public static final int btnResgistrar=0x7f080000;
         public static final int button2=0x7f080002;
         public static final int button3=0x7f080003;
+        public static final int listaPesquisa_txtPreco=0x7f08001a;
+        public static final int listaPesquisa_txtTitulo=0x7f080008;
         public static final int lstViewOfertas=0x7f080007;
         public static final int ratingDetalheAnunciante=0x7f080013;
         public static final int ratingDetalheInteresseOferta=0x7f080015;
-        public static final int textView1=0x7f080008;
         public static final int textView10=0x7f080014;
         public static final int textView11=0x7f08000c;
         public static final int textView3=0x7f08000e;
@@ -59,6 +60,7 @@ public final class R {
         public static final int activity_detalhe_oferta=0x7f030002;
         public static final int activity_entrar=0x7f030003;
         public static final int activity_resgistro=0x7f030004;
+        public static final int lista_pesquisa_anuncios=0x7f030005;
     }
     public static final class menu {
         public static final int autenticacao=0x7f070000;

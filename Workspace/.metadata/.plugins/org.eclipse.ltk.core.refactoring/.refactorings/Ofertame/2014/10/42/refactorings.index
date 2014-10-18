@@ -54,3 +54,8 @@
 1413502427945	Rename package 'com.secondfloor'
 1413509799242	Rename field 'urlServer'
 1413512562920	Encapsulate field 'dataOferta'
+1413571690440	Rename field 'textView1'
+1413572047677	Rename local variable 'objects'
+1413573306728	Rename local variable 'tvHome'
+1413573316287	Rename local variable 'tvName'
+1413588922422	Rename local variable 'http'

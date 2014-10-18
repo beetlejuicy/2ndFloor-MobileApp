@@ -3,6 +3,8 @@ package com.secondfloor.repositoryImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.util.Log;
+
 import com.secondfloor.dto.OfertaDTO;
 import com.secondfloor.messages.EncontrarOfertaResponse;
 import com.secondfloor.model.Anuncio;
@@ -20,20 +22,24 @@ public class RepositoryAnuncioImpl implements RepositoryAnuncio {
 	@Override
 	public List<Anuncio> pesquisarAnuncioPorTitulo(String titulo) {
 		List<Anuncio> anuncios = new ArrayList<Anuncio>();
-		EncontrarOfertaResponse response = anuncioRest
-				.EncontrarOfertasPorNomeProduto(titulo);
-		if (response.getSuccess()) {
-			for (OfertaDTO oferta : response.getOfertas()) {
-				Anuncio anuncio = new Anuncio();
-				anuncio.setTitulo(oferta.getNomeProduto());
-				anuncio.setAnunciante(oferta.getAnuncianteRazaoSocial());
-				anuncio.setClassificacaoAnunciante(Float.parseFloat(oferta.getAnunciantePontuacao()));
-				anuncio.setEndereco(formatarEndereco(oferta));
-				anuncio.setFornecedor(oferta.getFabricante());
-				anuncio.setPreco(Float.parseFloat(oferta.getValor()));
-				// anuncio.setDataOferta(dataOferta);
-				anuncios.add(anuncio);
+		try {
+			anuncioRest = new AnuncioRest();
+			EncontrarOfertaResponse response = anuncioRest.EncontrarOfertasPorNomeProduto(titulo);
+			if (response.getSuccess()) {
+				for (OfertaDTO oferta : response.getOfertas()) {
+					Anuncio anuncio = new Anuncio();
+					anuncio.setTitulo(oferta.getNomeProduto());
+					anuncio.setAnunciante(oferta.getAnuncianteRazaoSocial());
+					anuncio.setClassificacaoAnunciante(Float.parseFloat(oferta.getAnunciantePontuacao()));
+					anuncio.setEndereco(formatarEndereco(oferta));
+					anuncio.setFornecedor(oferta.getFabricante());
+					anuncio.setPreco(Float.parseFloat(oferta.getValor().replace(',', '.')));
+					// anuncio.setDataOferta(dataOferta);
+					anuncios.add(anuncio);
+				}
 			}
+		} catch (Exception e) {
+			Log.i("Exception", e.getMessage());
 		}
 		return anuncios;
 	}
