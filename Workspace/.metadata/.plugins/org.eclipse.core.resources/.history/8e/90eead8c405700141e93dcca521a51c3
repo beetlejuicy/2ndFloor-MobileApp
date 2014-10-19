@@ -1,0 +1,5 @@
+package com.secondfloor.dto.extend;
+
+public class OfertaDTOExtends {
+
+}

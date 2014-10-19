@@ -21,6 +21,8 @@ import com.secondfloor.repositoryImpl.RepositoryAnuncioImpl;
 import com.secondfloor.services.ServiceAnuncioImpl;
 
 public class BuscaOfertas extends Activity {
+	
+	
 	private Button btnPesquisar;
 	private ListView lstViewOfertas;
 	private TextView filtroTitulo;
@@ -43,10 +45,16 @@ public class BuscaOfertas extends Activity {
 					public void run() {
 						RepositoryAnuncio repositorio = new RepositoryAnuncioImpl();
 						ServiceAnuncio servicoAnuncio = new ServiceAnuncioImpl(repositorio);
-						
+						Log.i("buscaOfertas", "Inicia thread" );
 						List<Anuncio> listaAnuncios = servicoAnuncio.pesquisarAnuncioPorTitulo(filtroTitulo.getText().toString());
+						//ArrayList<Anuncio> arrayAnuncios = new ArrayList<Anuncio>(listaAnuncios);
+						AnuncioAdapter listaAnunciosAdapter = new AnuncioAdapter(BuscaOfertas.this, listaAnuncios);
+
+						//Esta dando erro aqui
 						
-						Log.i("buscaOfertas", "Anuncions encontrados: " + String.valueOf(listaAnuncios.size()) );
+						lstViewOfertas.setAdapter(listaAnunciosAdapter);
+						String msg = "Anuncions encontrados: " + String.valueOf(listaAnuncios.size());
+						Log.i("buscaOfertas", msg );
 						if(listaAnuncios.size() == 0)
 						{
 							BuscaOfertas.this.runOnUiThread(new Runnable()
@@ -57,18 +65,10 @@ public class BuscaOfertas extends Activity {
 								}
 							});
 						}
-						else {
-							AnuncioAdapter listaAnunciosAdapter = new AnuncioAdapter(BuscaOfertas.this, listaAnuncios);
-							//ArrayList<Anuncio> arrayAnuncios = new ArrayList<Anuncio>(listaAnuncios);
-							//Esta dando erro aqui
-							lstViewOfertas.setAdapter(listaAnunciosAdapter);							
 						}
-					}
-				};
-					
-				Log.i("buscaOfertas", "Inicia thread" );
-				t1.start();
-			}
+					};
+					t1.start();
+				}
 		});
         //http://www.codelearn.org/android-tutorial/android-listview
         //https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView

@@ -21,6 +21,8 @@ import com.secondfloor.repositoryImpl.RepositoryAnuncioImpl;
 import com.secondfloor.services.ServiceAnuncioImpl;
 
 public class BuscaOfertas extends Activity {
+	
+	
 	private Button btnPesquisar;
 	private ListView lstViewOfertas;
 	private TextView filtroTitulo;
@@ -63,12 +65,12 @@ public class BuscaOfertas extends Activity {
 							//Esta dando erro aqui
 							lstViewOfertas.setAdapter(listaAnunciosAdapter);							
 						}
-					}
-				};
+						}
+					};
 					
-				Log.i("buscaOfertas", "Inicia thread" );
-				t1.start();
-			}
+					Log.i("buscaOfertas", "Inicia thread" );
+					t1.start();
+				}
 		});
         //http://www.codelearn.org/android-tutorial/android-listview
         //https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
