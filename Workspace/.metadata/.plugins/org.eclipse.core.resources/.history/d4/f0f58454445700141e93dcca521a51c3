@@ -1,0 +1,18 @@
+package com.secondfloor.ofertame.task;
+
+import com.secondfloor.messages.EncontrarOfertaResponse;
+
+import android.os.AsyncTask;
+
+public class BuscaOfertasTask extends AsyncTask<String, Double, EncontrarOfertaResponse>{
+
+	@Override
+	protected EncontrarOfertaResponse doInBackground(String... params) {
+		//Na apostila do sensato
+		String titulo = params[0];
+		
+		
+		return null;
+	}
+
+}

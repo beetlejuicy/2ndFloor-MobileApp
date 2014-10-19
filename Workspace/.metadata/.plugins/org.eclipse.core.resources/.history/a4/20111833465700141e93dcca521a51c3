@@ -1,0 +1,67 @@
+package com.secondfloor.ofertame.task;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.secondfloor.dto.extend.OfertaDTOExtends;
+import com.secondfloor.messages.EncontrarOfertaResponse;
+import com.secondfloor.model.Anuncio;
+import com.secondfloor.ofertame.BuscaOfertas;
+import com.secondfloor.servicesRest.AnuncioRest;
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.util.Log;
+import android.widget.Toast;
+
+public class BuscaOfertasTask extends AsyncTask<String, Double, EncontrarOfertaResponse>
+{
+	private final Activity context;
+	
+	public BuscaOfertasTask(Activity context){
+		this.context = context;
+	}
+	
+	@Override
+	protected EncontrarOfertaResponse doInBackground(String... params) 
+	{
+		//Na apostila do sensato
+		String titulo = params[0];
+		EncontrarOfertaResponse response = null;
+		
+		
+		try {
+			response = new AnuncioRest().EncontrarOfertasPorNomeProduto(titulo);
+		} catch (Exception e) {
+			Log.e("Exception", e.getMessage());
+		}
+		
+		return response;
+	}
+	
+	@Override
+	protected void onPreExecute() {
+		
+	
+	}
+	
+	@Override
+	protected void onPostExecute(EncontrarOfertaResponse result) {
+		List<Anuncio> anuncios = new ArrayList<Anuncio>();
+		if (result.getSuccess()) {
+			anuncios = new OfertaDTOExtends().OfertaDtoToAnuncios(result.getOfertas());
+			Log.i("buscaOfertas", "Anuncions encontrados: " + String.valueOf(result.getOfertas().length));
+		}
+		else
+		{
+			Toast.makeText(context, "Desculpe! Houve uma falha no servidor.", Toast.LENGTH_LONG).;
+		}
+		
+		if(anuncios.size() == 0)
+		{
+			Toast.makeText(context, "Nenhuma oferta encontrada", Toast.LENGTH_LONG);
+		}
+		
+	}
+
+}

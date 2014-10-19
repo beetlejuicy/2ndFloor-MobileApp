@@ -38,7 +38,7 @@ public class BuscaOfertas extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				BuscaOfertasTask buscaOfertasTask = new BuscaOfertasTask(BuscaOfertas.this,lstViewOfertas);
+				BuscaOfertasTask buscaOfertasTask = new BuscaOfertasTask(BuscaOfertas.this);
 				buscaOfertasTask.execute(filtroTitulo.getText().toString());
 				
 				//AnuncioAdapter listaAnunciosAdapter = new AnuncioAdapter(BuscaOfertas.this, listaAnuncios);
