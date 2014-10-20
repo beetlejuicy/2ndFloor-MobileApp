@@ -40,8 +40,6 @@ public class RestHelper {
 		    
 		    res.setHttpResult(urlConnection.getResponseCode());
 		    
-		    Log.i("HttpResult", String.valueOf(res.getHttpResult()));
-		    
 		    if(urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK)
 		    {
 		    	InputStreamReader reader = new InputStreamReader(urlConnection.getInputStream());
@@ -57,7 +55,6 @@ public class RestHelper {
 		        br.close();
 		        
 		        res.setResponseJson(sb.toString());
-		        Log.i("responseJson", res.getResponseJson());
 		    }
 		    
 		}

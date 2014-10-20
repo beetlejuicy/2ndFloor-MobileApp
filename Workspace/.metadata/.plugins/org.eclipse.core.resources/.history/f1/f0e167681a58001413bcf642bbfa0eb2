@@ -57,7 +57,6 @@ public class RestHelper {
 		        br.close();
 		        
 		        res.setResponseJson(sb.toString());
-		        Log.i("responseJson", res.getResponseJson());
 		    }
 		    
 		}

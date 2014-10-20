@@ -45,22 +45,44 @@ public class AnuncioRest {
 		
 		Log.i("uri", uri );
 		Log.i("jsonRequest", requestJson );
-		  
+				
+		HttpURLConnection urlConnection = null;  
 		try{
+			//Conexão
 			RestHelper restHelper = new RestHelper();
-			RestPostResult postResult = restHelper.sendPost(uri, requestJson);
+			urlConnection = restHelper.sendPost(uri, requestJson);
+
+		    int HttpResult = urlConnection.getResponseCode();
+		    Log.i("HttpResult", String.valueOf(HttpResult));
 		    
-		    if(postResult.getHttpResult() == HttpURLConnection.HTTP_OK)
+		    if(HttpResult == HttpURLConnection.HTTP_OK)
 		    {
-		        JSONDeserializer<EncontrarOfertaResponse> jsonDeserializer = new JSONDeserializer<EncontrarOfertaResponse>();
-		        jsonDeserializer.deserializeInto(postResult.getResponseJson(), response);
+		    	InputStreamReader reader = new InputStreamReader(urlConnection.getInputStream());
+		    	
+		    	BufferedReader br = new BufferedReader(reader);
+		    	
+		    	StringBuilder sb = new StringBuilder();
+		    	String line = null;
+		        while ((line = br.readLine()) != null) 
+		        {  
+		            sb.append(line + "\n");  
+		        }
+		        br.close();
 		        
+		        //flexjson
+		        JSONDeserializer<EncontrarOfertaResponse> jsonDeserializer = new JSONDeserializer<EncontrarOfertaResponse>();
+		        jsonDeserializer.deserializeInto(sb.toString(), response);
+		        Log.i("responseJson", sb.toString());
 		    }
 		}
 		catch (Exception e) 
 		{
-			Log.e("AnuncioRest.EncontrarOfertasPorNomeProduto", e.getMessage() );
+			Log.e("IOException", e.getMessage() );
 			e.printStackTrace();
+		}
+		finally{  
+		    if(urlConnection!=null)  
+		        urlConnection.disconnect();  
 		}
 		
 		return response;
@@ -79,27 +101,6 @@ public class AnuncioRest {
 		
 		JSONSerializer jsonSerializer = new JSONSerializer();
 		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
-		
-		Log.i("uri", uri );
-		Log.i("jsonRequest", requestJson );
-		
-		HttpURLConnection urlConnection = null;  
-		try{
-			//Conexão
-			RestHelper restHelper = new RestHelper();
-			RestPostResult postResult = restHelper.sendPost(uri, requestJson);
-		    
-		    if(postResult.getHttpResult() == HttpURLConnection.HTTP_OK)
-		    {
-		        JSONDeserializer<AtribuirRatingOfertaResponse> jsonDeserializer = new JSONDeserializer<AtribuirRatingOfertaResponse>();
-		        jsonDeserializer.deserializeInto(postResult.getResponseJson(), response);
-		    }
-		}
-		catch (Exception e) 
-		{
-			Log.e("AnuncioRest.AtribuirRatingPara", e.getMessage() );
-			e.printStackTrace();
-		}
 		
 		return response;
 	}

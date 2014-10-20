@@ -1,26 +1,18 @@
 package com.secondfloor.servicesRest;
 
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-import com.secondfloor.messages.EncontrarOfertaResponse;
-
-import flexjson.JSONDeserializer;
-
 import android.util.Log;
 
 public class RestHelper {
 	
-	public RestPostResult sendPost(String uri, String requestJson)
+	public String sendPost(String uri, String requestJson)
 	{
-		RestPostResult res = new RestPostResult();
-		
 		HttpURLConnection urlConnection=null;
 		try
 		{
@@ -37,29 +29,6 @@ public class RestHelper {
 		    wr.writeBytes(requestJson);
 		    wr.flush();
 		    wr.close();
-		    
-		    res.setHttpResult(urlConnection.getResponseCode());
-		    
-		    Log.i("HttpResult", String.valueOf(res.getHttpResult()));
-		    
-		    if(urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK)
-		    {
-		    	InputStreamReader reader = new InputStreamReader(urlConnection.getInputStream());
-		    	
-		    	BufferedReader br = new BufferedReader(reader);
-		    	
-		    	StringBuilder sb = new StringBuilder();
-		    	String line = null;
-		        while ((line = br.readLine()) != null) 
-		        {  
-		            sb.append(line + "\n");  
-		        }
-		        br.close();
-		        
-		        res.setResponseJson(sb.toString());
-		        Log.i("responseJson", res.getResponseJson());
-		    }
-		    
 		}
 		catch(MalformedURLException e)
 		{
@@ -76,11 +45,7 @@ public class RestHelper {
 			Log.e("IOException", e.getMessage() );
 			e.printStackTrace();
 		}
-		finally{  
-		    if(urlConnection!=null)  
-		        urlConnection.disconnect();  
-		}
 		
-		return res;
+		return urlConnection;
 	}
 }

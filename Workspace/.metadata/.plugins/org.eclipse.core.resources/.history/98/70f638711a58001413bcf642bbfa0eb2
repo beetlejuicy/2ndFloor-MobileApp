@@ -1,0 +1,130 @@
+package com.secondfloor.servicesRest;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+
+import android.util.Log;
+
+import com.secondfloor.messages.AtribuirRatingOfertaRequest;
+import com.secondfloor.messages.AtribuirRatingOfertaResponse;
+import com.secondfloor.messages.EncontrarOfertaRequest;
+import com.secondfloor.messages.EncontrarOfertaResponse;
+
+import flexjson.JSONDeserializer;
+import flexjson.JSONSerializer;
+
+public class AnuncioRest {
+	private String urlServerBase;
+	
+	public AnuncioRest()
+	{
+		urlServerBase ="http://10.0.2.2:8080/web/";
+		//urlServerBase = "http://localhost:1886/Service.svc/web/";
+	}
+	
+	public EncontrarOfertaResponse EncontrarOfertasPorNomeProduto(String nomeProduto)
+	{
+		final String route = "EncontrarOfertaPor";
+		String uri = this.urlServerBase + route;
+		
+		EncontrarOfertaResponse response = new EncontrarOfertaResponse();
+		
+		EncontrarOfertaRequest request = new EncontrarOfertaRequest();
+		request.setProduto(nomeProduto);
+		//request.setBairro("bairro");
+		//request.setTipoProduto("tipoProduto");
+		
+		JSONSerializer jsonSerializer = new JSONSerializer();
+		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
+		
+		Log.i("uri", uri );
+		Log.i("jsonRequest", requestJson );
+				
+		  
+		try{
+			//Conexão
+			RestHelper restHelper = new RestHelper();
+			RestPostResult postResult = restHelper.sendPost(uri, requestJson);
+
+		    Log.i("HttpResult", String.valueOf(postResult.getHttpResult()));
+		    
+		    if(postResult.getHttpResult() == HttpURLConnection.HTTP_OK)
+		    {
+		        //flexjson
+		        JSONDeserializer<EncontrarOfertaResponse> jsonDeserializer = new JSONDeserializer<EncontrarOfertaResponse>();
+		        jsonDeserializer.deserializeInto(postResult.getResponseJson(), response);
+		        Log.i("responseJson", postResult.getResponseJson());
+		    }
+		}
+		catch (Exception e) 
+		{
+			Log.e("Exception", e.getMessage() );
+			e.printStackTrace();
+		}
+		
+		
+		return response;
+	}
+	
+	//public AtribuirRatingOfertaResponse AtribuirRatingPara(String consumidorId,String produtoId, Float rating){
+	//	final String route = "AtribuirRatingPara";
+	//	String uri = this.urlServerBase + route;
+	//	
+	//	AtribuirRatingOfertaResponse response = new AtribuirRatingOfertaResponse();
+	//	
+	//	AtribuirRatingOfertaRequest request = new AtribuirRatingOfertaRequest();
+	//	request.setConsumidorId(consumidorId);
+	//	request.setProdutoId(produtoId);
+	//	request.setRating(String.valueOf(rating));
+	//	
+	//	JSONSerializer jsonSerializer = new JSONSerializer();
+	//	String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
+	//	
+	//	Log.i("uri", uri );
+	//	Log.i("jsonRequest", requestJson );
+	//	
+	//	HttpURLConnection urlConnection = null;  
+	//	try{
+	//		//Conexão
+	//		RestHelper restHelper = new RestHelper();
+	//		urlConnection = restHelper.sendPost(uri, requestJson);
+    //
+	//	    int HttpResult = urlConnection.getResponseCode();
+	//	    Log.i("HttpResult", String.valueOf(HttpResult));
+	//	    
+	//	    if(HttpResult == HttpURLConnection.HTTP_OK)
+	//	    {
+	//	    	InputStreamReader reader = new InputStreamReader(urlConnection.getInputStream());
+	//	    	
+	//	    	BufferedReader br = new BufferedReader(reader);
+	//	    	
+	//	    	StringBuilder sb = new StringBuilder();
+	//	    	String line = null;
+	//	        while ((line = br.readLine()) != null) 
+	//	        {  
+	//	            sb.append(line + "\n");  
+	//	        }
+	//	        br.close();
+	//	        
+	//	        //flexjson
+	//	        JSONDeserializer<EncontrarOfertaResponse> jsonDeserializer = new JSONDeserializer<AtribuirRatingOfertaResponse>();
+	//	        jsonDeserializer.deserializeInto(sb.toString(), response);
+	//	        Log.i("responseJson", sb.toString());
+	//	    }
+	//	}
+	//	catch (Exception e) 
+	//	{
+	//		Log.e("Exception", e.getMessage() );
+	//		e.printStackTrace();
+	//	}
+	//	
+	//	return response;
+	//}
+
+}

@@ -59,9 +59,10 @@ public class AnuncioRest {
 		}
 		catch (Exception e) 
 		{
-			Log.e("AnuncioRest.EncontrarOfertasPorNomeProduto", e.getMessage() );
+			Log.e("Exception", e.getMessage() );
 			e.printStackTrace();
 		}
+		
 		
 		return response;
 	}
@@ -97,7 +98,7 @@ public class AnuncioRest {
 		}
 		catch (Exception e) 
 		{
-			Log.e("AnuncioRest.AtribuirRatingPara", e.getMessage() );
+			Log.e("Exception", e.getMessage() );
 			e.printStackTrace();
 		}
 		

@@ -59,9 +59,10 @@ public class AnuncioRest {
 		}
 		catch (Exception e) 
 		{
-			Log.e("AnuncioRest.EncontrarOfertasPorNomeProduto", e.getMessage() );
+			Log.e("Exception", e.getMessage() );
 			e.printStackTrace();
 		}
+		
 		
 		return response;
 	}
@@ -87,17 +88,34 @@ public class AnuncioRest {
 		try{
 			//Conexão
 			RestHelper restHelper = new RestHelper();
-			RestPostResult postResult = restHelper.sendPost(uri, requestJson);
+			urlConnection = restHelper.sendPost(uri, requestJson);
+
+		    int HttpResult = urlConnection.getResponseCode();
+		    Log.i("HttpResult", String.valueOf(HttpResult));
 		    
-		    if(postResult.getHttpResult() == HttpURLConnection.HTTP_OK)
+		    if(HttpResult == HttpURLConnection.HTTP_OK)
 		    {
-		        JSONDeserializer<AtribuirRatingOfertaResponse> jsonDeserializer = new JSONDeserializer<AtribuirRatingOfertaResponse>();
-		        jsonDeserializer.deserializeInto(postResult.getResponseJson(), response);
+		    	InputStreamReader reader = new InputStreamReader(urlConnection.getInputStream());
+		    	
+		    	BufferedReader br = new BufferedReader(reader);
+		    	
+		    	StringBuilder sb = new StringBuilder();
+		    	String line = null;
+		        while ((line = br.readLine()) != null) 
+		        {  
+		            sb.append(line + "\n");  
+		        }
+		        br.close();
+		        
+		        //flexjson
+		        JSONDeserializer<EncontrarOfertaResponse> jsonDeserializer = new JSONDeserializer<AtribuirRatingOfertaResponse>();
+		        jsonDeserializer.deserializeInto(sb.toString(), response);
+		        Log.i("responseJson", sb.toString());
 		    }
 		}
 		catch (Exception e) 
 		{
-			Log.e("AnuncioRest.AtribuirRatingPara", e.getMessage() );
+			Log.e("Exception", e.getMessage() );
 			e.printStackTrace();
 		}
 		

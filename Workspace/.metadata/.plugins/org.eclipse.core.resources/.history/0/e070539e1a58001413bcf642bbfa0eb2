@@ -59,9 +59,10 @@ public class AnuncioRest {
 		}
 		catch (Exception e) 
 		{
-			Log.e("AnuncioRest.EncontrarOfertasPorNomeProduto", e.getMessage() );
+			Log.e("Exception", e.getMessage() );
 			e.printStackTrace();
 		}
+		
 		
 		return response;
 	}
@@ -91,13 +92,14 @@ public class AnuncioRest {
 		    
 		    if(postResult.getHttpResult() == HttpURLConnection.HTTP_OK)
 		    {
-		        JSONDeserializer<AtribuirRatingOfertaResponse> jsonDeserializer = new JSONDeserializer<AtribuirRatingOfertaResponse>();
+		        JSONDeserializer<EncontrarOfertaResponse> jsonDeserializer = new JSONDeserializer<AtribuirRatingOfertaResponse>();
 		        jsonDeserializer.deserializeInto(postResult.getResponseJson(), response);
+		        
 		    }
 		}
 		catch (Exception e) 
 		{
-			Log.e("AnuncioRest.AtribuirRatingPara", e.getMessage() );
+			Log.e("Exception", e.getMessage() );
 			e.printStackTrace();
 		}
 		

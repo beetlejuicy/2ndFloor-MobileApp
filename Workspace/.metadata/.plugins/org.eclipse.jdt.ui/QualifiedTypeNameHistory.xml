@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="com.secondfloor.model.Autenticacao"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
 <fullyQualifiedTypeName name="com.secondfloor.ofertame.R.layout"/>
-<fullyQualifiedTypeName name="com.secondfloor.ofertame.R.id"/>
 <fullyQualifiedTypeName name="android.widget.RatingBar"/>
 <fullyQualifiedTypeName name="android.widget.RatingBar.OnRatingBarChangeListener"/>
 <fullyQualifiedTypeName name="com.secondfloor.contracts.ServiceAnuncio"/>
@@ -45,6 +44,12 @@
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.string"/>
 <fullyQualifiedTypeName name="com.secondfloor.ofertame.R.string"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="com.secondfloor.ofertame.R"/>
+<fullyQualifiedTypeName name="com.secondfloor.ofertame.R.id"/>
+<fullyQualifiedTypeName name="android.graphics.drawable.LayerDrawable"/>
+<fullyQualifiedTypeName name="android.graphics.Color"/>
+<fullyQualifiedTypeName name="com.secondfloor.ofertame.util.StringUtil"/>
+<fullyQualifiedTypeName name="com.secondfloor.messages.AtribuirRatingOfertaResponse"/>
+<fullyQualifiedTypeName name="com.secondfloor.messages.AtribuirRatingOfertaRequest"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>
