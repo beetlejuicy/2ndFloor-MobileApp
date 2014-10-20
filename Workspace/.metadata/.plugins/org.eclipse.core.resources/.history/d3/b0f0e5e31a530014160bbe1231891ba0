@@ -1,9 +1,0 @@
-package com.secondfloor.contracts;
-
-import com.secondfloor.model.Autenticacao;
-
-public interface ServiceAutenticacao {
-	public void Cadastrar(Autenticacao autenticacao);
-	public boolean Autenticar(Autenticacao autenticacao);
-
-}

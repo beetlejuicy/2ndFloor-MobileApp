@@ -78,21 +78,21 @@ public class DetalheOferta extends Activity{
 	private void fillScreen(Anuncio anuncio)
 	{
 		txtTitulo.setText(anuncio.getTitulo());
-		txtData.setText(anuncio.getDataOferta());
-		txtEndereco.setText(anuncio.getEndereco());
-		txtFornecedor.setText(anuncio.getFornecedor());
-		txtAnunciante.setText(anuncio.getAnunciante());
+		//txtData.setText(anuncio.getDataOferta());
+		//txtEndereco.setText(anuncio.getEndereco());
+		//txtFornecedor.setText(anuncio.getFornecedor());
+		//txtAnunciante.setText(anuncio.getAnunciante());
 		txtPreco.setText(String.format("R$ %.2f",anuncio.getPreco()));
-		ratingAnunciante.setRating(anuncio.getClassificacaoAnunciante());
+		//ratingAnunciante.setRating(anuncio.getClassificacaoAnunciante());
+		//ratingAnunciante.setEnabled(false);
+		
+		txtData.setText("20/10 - 10/11");
+		txtEndereco.setText("Av. Angélica, 2346 conj. 161 B    01228-200    São Paulo  ");
+		txtFornecedor.setText("Bauduco");
+		txtAnunciante.setText("Fulano de Tal");
+		txtPreco.setText(String.format("R$ %.2f",anuncio.getPreco()));
+		ratingAnunciante.setRating(0f);
 		ratingAnunciante.setEnabled(false);
-		
-		//ratingAnunciante.setEnabled(false);txtData.setText("20/10 - 10/11");
-		//txtEndereco.setText("Av. Angélica, 2346 conj. 161 B    01228-200    São Paulo  ");
-		//txtFornecedor.setText("Bauduco");
-		//txtAnunciante.setText("Fulano de Tal");
-		//txtPreco.setText(String.format("R$ %.2f",anuncio.getPreco()));
-		//ratingAnunciante.setRating(0f);
-		
 		
 	}
 	
