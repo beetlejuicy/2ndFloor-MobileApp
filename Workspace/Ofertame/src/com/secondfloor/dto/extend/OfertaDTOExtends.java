@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.secondfloor.dto.OfertaDTO;
 import com.secondfloor.model.Anuncio;
+import com.secondfloor.ofertame.util.StringUtil;
 
 public class OfertaDTOExtends {
 	
@@ -19,15 +20,25 @@ public class OfertaDTOExtends {
 				Anuncio anuncio = new Anuncio();
 				anuncio.setTitulo(oferta.getNomeProduto());
 				anuncio.setAnunciante(oferta.getAnuncianteRazaoSocial());
-				anuncio.setClassificacaoAnunciante(Float.parseFloat(oferta.getAnunciantePontuacao()));
+				
+				if(!StringUtil.isNullOrWhiteSpace(oferta.getAnunciantePontuacao()))
+					anuncio.setClassificacaoAnunciante(Float.parseFloat(oferta.getAnunciantePontuacao()));
+				else
+					anuncio.setClassificacaoAnunciante(0f);
+				
 				anuncio.setEndereco(formatarEndereco(oferta));
 				anuncio.setFornecedor(oferta.getFabricante());
-				anuncio.setPreco(Float.parseFloat(oferta.getValor().replace(',', '.')));
+				
+				if(!StringUtil.isNullOrWhiteSpace(oferta.getValor()))
+					anuncio.setPreco(Float.parseFloat(oferta.getValor().replace(',', '.')));
+				else
+					anuncio.setPreco(0f);
+				
 				// anuncio.setDataOferta(dataOferta);
 				anuncios.add(anuncio);
 			}
 		} catch (Exception e) {
-			Log.e("Exception", e.getMessage());
+			Log.e("OfertaDTOExtends.OfertaDtoToAnuncios", e.getMessage());
 		}
 		return anuncios;
 	}
@@ -39,15 +50,13 @@ public class OfertaDTOExtends {
 		{
 			sb.append(oferta.getLogradouro() + " ");
 			sb.append("n: " + oferta.getNumero() + " ");
-			if (oferta.getComplemento() != null && oferta.getComplemento() != "") 
+			if (!StringUtil.isNullOrWhiteSpace(oferta.getComplemento())) 
 			{
 				sb.append(" - " + oferta.getComplemento() + " ");
 			}
 			sb.append(oferta.getBairro() + " - ");
 			sb.append(oferta.getCidade() + " - ");
-			if (oferta.getEstado() != null
-					&& (oferta.getEstado().getSigla() != null && oferta
-							.getEstado().getSigla() != "")) 
+			if (oferta.getEstado() != null && !StringUtil.isNullOrWhiteSpace(oferta.getEstado().getSigla())) 
 			{
 				sb.append(oferta.getEstado().getSigla() + " - ");
 			}

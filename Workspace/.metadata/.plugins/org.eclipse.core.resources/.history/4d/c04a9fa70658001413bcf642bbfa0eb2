@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/txtDetalheTitulo"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Titulo" />
+
+    <TextView
+        android:id="@+id/txtDetalheData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/txtDetalheTitulo"
+        android:layout_below="@+id/txtDetalheTitulo"
+        android:text="Data" />
+	
+	<TextView
+        android:id="@+id/txtDetalheEndereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Endereco" />
+	
+	<TextView
+        android:id="@+id/txtDetalheFornecedor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+	
+	<TextView
+        android:id="@+id/txtDetalheAnunciante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+	
+	<RatingBar
+        android:id="@+id/ratingDetalheAnunciante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+	
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true">
+	    
+	    <TextView
+	        android:id="@+id/textView10"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/lblQuestaoOferta"
+	        android:textColor="@android:color/holo_blue_dark" />
+	    
+	    <RatingBar
+	        android:id="@+id/ratingDetalheInteresseOferta"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" />
+	</RelativeLayout>
+	
+</RelativeLayout>
