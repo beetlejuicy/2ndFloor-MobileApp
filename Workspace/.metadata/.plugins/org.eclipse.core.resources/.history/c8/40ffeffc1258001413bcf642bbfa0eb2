@@ -28,6 +28,8 @@ public class AnuncioRest {
 	
 	public EncontrarOfertaResponse EncontrarOfertasPorNomeProduto(String nomeProduto)
 	{
+		
+		
 		final String route = "EncontrarOfertaPor";
 		String uri = this.urlServerBase + route;
 		

@@ -20,14 +20,11 @@ import flexjson.JSONSerializer;
 public class AnuncioRest {
 	private String urlServerBase;
 	
-	public AnuncioRest()
+	public EncontrarOfertaResponse EncontrarOfertasPorNomeProduto(String nomeProduto)
 	{
 		urlServerBase ="http://10.0.2.2:8080/web/";
 		//urlServerBase = "http://localhost:1886/Service.svc/web/";
-	}
-	
-	public EncontrarOfertaResponse EncontrarOfertasPorNomeProduto(String nomeProduto)
-	{
+		
 		final String route = "EncontrarOfertaPor";
 		String uri = this.urlServerBase + route;
 		
@@ -105,11 +102,6 @@ public class AnuncioRest {
 		}
 		
 		return response;
-	}
-	
-	public void AtribuirRatingPara(String consumidorId,String produtoId, Float rating){
-		
-		
 	}
 
 }
