@@ -20,7 +20,6 @@
 <fullyQualifiedTypeName name="com.secondfloor.repositoryImpl.RepositoryAnuncioImpl"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="com.secondfloor.dto.extend.OfertaDTOExtends"/>
-<fullyQualifiedTypeName name="android.os.AsyncTask"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="com.secondfloor.messages.EncontrarOfertaResponse"/>
@@ -49,7 +48,9 @@
 <fullyQualifiedTypeName name="android.graphics.drawable.LayerDrawable"/>
 <fullyQualifiedTypeName name="android.graphics.Color"/>
 <fullyQualifiedTypeName name="com.secondfloor.ofertame.util.StringUtil"/>
-<fullyQualifiedTypeName name="com.secondfloor.messages.AtribuirRatingOfertaResponse"/>
 <fullyQualifiedTypeName name="com.secondfloor.messages.AtribuirRatingOfertaRequest"/>
+<fullyQualifiedTypeName name="android.os.AsyncTask"/>
+<fullyQualifiedTypeName name="com.secondfloor.messages.AtribuirRatingOfertaResponse"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.secondfloor.ofertame.task.RatingOfertaTask"/>
 </qualifiedTypeNameHistroy>
