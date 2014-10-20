@@ -90,6 +90,7 @@ public final class R {
         public static final int lblQuestaoOferta=0x7f050016;
         public static final int lblSenha=0x7f05000d;
         public static final int lblTitulo=0x7f050011;
+        public static final int msgFalhaDetalheOferta=0x7f050018;
     }
     public static final class style {
         /** 

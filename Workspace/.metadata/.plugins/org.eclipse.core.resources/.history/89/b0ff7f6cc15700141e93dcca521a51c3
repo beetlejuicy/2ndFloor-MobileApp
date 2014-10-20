@@ -1,0 +1,83 @@
+package com.secondfloor.ofertame.task;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.secondfloor.dto.extend.OfertaDTOExtends;
+import com.secondfloor.messages.EncontrarOfertaResponse;
+import com.secondfloor.model.Anuncio;
+import com.secondfloor.ofertame.AnuncioAdapter;
+import com.secondfloor.ofertame.R;
+import com.secondfloor.servicesRest.AnuncioRest;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+import android.util.Log;
+import android.widget.ListView;
+import android.widget.Toast;
+
+public class BuscaOfertasTask extends AsyncTask<String, Double, EncontrarOfertaResponse>
+{
+	private final Activity context;
+	private ProgressDialog progress;
+	private ListView lstViewOfertas;
+	
+	public BuscaOfertasTask(Activity context,ListView lstViewOfertas)
+	{
+		this.context = context;
+		this.lstViewOfertas = lstViewOfertas;
+	}
+
+	@Override
+	protected void onPreExecute() {
+		progress = ProgressDialog.show(context, R.string.msgAguarde, R.string.msgBuscaOfertasPesqServer,true,true);
+	}
+	
+	@Override
+	protected EncontrarOfertaResponse doInBackground(String... params) 
+	{
+		Log.i("buscaOfertas", "Inicia thread" );
+		String titulo = params[0];
+		EncontrarOfertaResponse response = null;
+		
+		try {
+			response = new AnuncioRest().EncontrarOfertasPorNomeProduto(titulo);
+		} catch (Exception e) {
+			Log.e("BuscaOfertasTask.doInBackground.Exception", e.getMessage());
+		}
+		
+		return response;
+	}
+	
+	@Override
+	protected void onPostExecute(EncontrarOfertaResponse result) {
+		progress.dismiss();
+		lstViewOfertas.setAdapter(null);
+		
+		List<Anuncio> anuncios = new ArrayList<Anuncio>();
+		if (result.getSuccess()) {
+			anuncios = new OfertaDTOExtends().OfertaDtoToAnuncios(result.getOfertas());
+			Log.i("buscaOfertas", "Anuncions encontrados: " + String.valueOf(result.getOfertas().length));
+
+			if(anuncios.size() == 0)
+			{
+				Toast.makeText(context, "Nenhuma oferta encontrada", Toast.LENGTH_LONG).show();
+			}
+			else
+			{
+				try {
+					AnuncioAdapter listaAnunciosAdapter = new AnuncioAdapter(context, anuncios);
+					lstViewOfertas.setAdapter(listaAnunciosAdapter);
+				} catch (Exception e) {
+					Log.e("Erro ao preencher listView", e.getMessage());
+				}
+			}
+		}
+		else
+		{
+			Toast.makeText(context, "Desculpe! Houve uma falha no servidor.", Toast.LENGTH_LONG).show();
+		}
+	}
+
+}

@@ -1,0 +1,85 @@
+package com.secondfloor.ofertame;
+import org.w3c.dom.Text;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.RatingBar;
+import android.widget.RatingBar.OnRatingBarChangeListener;
+import android.widget.Toast;
+
+import com.secondfloor.contracts.ServiceAnuncio;
+import com.secondfloor.model.Anuncio;
+import com.secondfloor.repository.RepositoryAnuncio;
+import com.secondfloor.services.ServiceAnuncioImpl;
+import com.secondfloor.ofertame.utils.ParamAnuncio;
+
+public class DetalheOferta extends Activity{
+	private RepositoryAnuncio repositorio;
+	private ServiceAnuncio servicoAnuncio = new ServiceAnuncioImpl(repositorio);
+	
+	private Text txtTitulo;
+	private Text txtData;
+	private Text txtEndereco;
+	private Text txtFornecedor;
+	private RatingBar ratingAnunciante;
+	private Text txtAnunciante;
+	private RatingBar ratingInteresseOferta;
+
+	private int idAnuncio;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_detalhe_oferta);
+		
+		Log.i("Detalhe oferta", "Abrindo tela");
+		
+		txtTitulo = (Text) findViewById(R.id.txtDetalheTitulo);
+		txtData = (Text) findViewById(R.id.txtDetalheData);
+		txtEndereco = (Text) findViewById(R.id.txtDetalheEndereco);
+		txtFornecedor = (Text) findViewById(R.id.txtDetalheFornecedor);
+		txtAnunciante = (Text) findViewById(R.id.txtDetalheAnunciante);
+		ratingAnunciante = (RatingBar) findViewById(R.id.ratingDetalheAnunciante);
+		ratingInteresseOferta = (RatingBar) findViewById(R.id.ratingDetalheInteresseOferta);
+		ratingInteresseOferta.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+			@Override
+			public void onRatingChanged(RatingBar ratingBar, float rating,boolean fromUser) {
+				//servicoAnuncio.publicarInteresseOferta(idAnuncio, rating);
+				Toast.makeText(DetalheOferta.this, "Rating: " + rating, Toast.LENGTH_SHORT);
+			}
+		});
+		
+		loadScreen();
+	}
+	
+	private void loadScreen() {
+		//http://julianacora.blogspot.com.br/2012/04/android-passagem-de-parametros-entre.html
+		//Recuperando e trocando parametros entre activitys
+
+		Bundle b = this.getIntent().getExtras();
+		
+		if(b!=null)
+		{
+			ParamAnuncio paramAnuncio = (ParamAnuncio)b.getSerializable("paramAnuncio");
+			try {
+				fillScreen(paramAnuncio.getAnuncio());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				Log.e("Erro ao preencher a tela detalhe oferta", e.getMessage());
+			}
+		}
+
+	}
+
+	private void fillScreen(Anuncio anuncio)
+	{
+		txtTitulo.setTextContent(anuncio.getTitulo());
+		//txtData.setTextContent(anuncio.getDataOferta());
+		txtEndereco.setTextContent(anuncio.getEndereco());
+		txtFornecedor.setTextContent(anuncio.getFornecedor());
+		txtAnunciante.setTextContent(anuncio.getAnunciante());
+		ratingAnunciante.setRating(anuncio.getClassificacaoAnunciante());
+		ratingAnunciante.setEnabled(false);
+	}
+}

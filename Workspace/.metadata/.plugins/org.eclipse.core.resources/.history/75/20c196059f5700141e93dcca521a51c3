@@ -1,0 +1,22 @@
+package com.secondfloor.ofertame.utils;
+
+import java.io.Serializable;
+
+import com.secondfloor.model.Anuncio;
+
+public class ParamAnuncio implements Serializable
+{
+	private static final long serialVersionUID = -405645512601061985L;
+	
+	private Anuncio anuncio;
+
+	public Anuncio getAnuncio() {
+		return anuncio;
+	}
+
+	public void setAnuncio(Anuncio anuncio) {
+		this.anuncio = anuncio;
+	}
+
+
+}

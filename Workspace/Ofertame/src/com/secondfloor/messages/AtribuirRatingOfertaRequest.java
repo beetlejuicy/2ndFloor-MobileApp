@@ -9,6 +9,8 @@ package com.secondfloor.messages;
 
 public class AtribuirRatingOfertaRequest  implements java.io.Serializable {
     private java.lang.String rating;
+    private java.lang.String consumidorId;
+    private java.lang.String produtoId;
 
     public AtribuirRatingOfertaRequest() {
     }
@@ -37,4 +39,20 @@ public class AtribuirRatingOfertaRequest  implements java.io.Serializable {
     public void setRating(java.lang.String rating) {
         this.rating = rating;
     }
+
+	public java.lang.String getConsumidorId() {
+		return consumidorId;
+	}
+
+	public void setConsumidorId(java.lang.String consumidorId) {
+		this.consumidorId = consumidorId;
+	}
+
+	public java.lang.String getProdutoId() {
+		return produtoId;
+	}
+
+	public void setProdutoId(java.lang.String produtoId) {
+		this.produtoId = produtoId;
+	}
 }

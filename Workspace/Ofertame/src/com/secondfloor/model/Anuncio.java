@@ -1,8 +1,9 @@
 package com.secondfloor.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Anuncio {
+public class Anuncio implements Serializable{
 	private String titulo;
 	private String dataOferta;
 	private String endereco;
