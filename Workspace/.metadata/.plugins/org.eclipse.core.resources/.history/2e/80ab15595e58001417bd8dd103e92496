@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 public class Anuncio implements Serializable{
-	private String id;
 	private String titulo;
 	private String dataOferta;
 	private String endereco;
@@ -55,12 +54,5 @@ public class Anuncio implements Serializable{
 	}
 	public void setDataOferta(String dataOferta) {
 		this.dataOferta = dataOferta;
-	}
-	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
 }

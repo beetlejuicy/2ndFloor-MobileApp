@@ -103,11 +103,11 @@ public class DetalheOferta extends Activity{
 		try {
 			String consumidorId = "";
 			String produtoId = pAnuncio.getId();
-			String ratingStr = String.valueOf(rating);
+			String rating = String.valueOf(rating);
 			RatingOfertaTask ratingOfertaTask = new RatingOfertaTask();
-			ratingOfertaTask.execute(consumidorId,produtoId,ratingStr);
+			ratingOfertaTask.execute(consumidorId,produtoId,rating);
 		} catch (Exception e) {
-			Log.e("Erro ao enviar Rating", e.getMessage());
+
 		}
 	
 	}

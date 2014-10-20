@@ -36,7 +36,7 @@ public class BuscaOfertasTask extends AsyncTask<String, Double, EncontrarOfertaR
 	@Override
 	protected EncontrarOfertaResponse doInBackground(String... params) 
 	{
-		Log.i("BuscaOfertasTask", "Inicia thread" );
+		Log.i("buscaOfertas", "Inicia thread" );
 		String titulo = params[0];
 		EncontrarOfertaResponse response = null;
 		

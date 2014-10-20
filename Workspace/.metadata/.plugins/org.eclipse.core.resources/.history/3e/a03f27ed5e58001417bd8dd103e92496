@@ -107,7 +107,7 @@ public class DetalheOferta extends Activity{
 			RatingOfertaTask ratingOfertaTask = new RatingOfertaTask();
 			ratingOfertaTask.execute(consumidorId,produtoId,ratingStr);
 		} catch (Exception e) {
-			Log.e("Erro ao enviar Rating", e.getMessage());
+
 		}
 	
 	}

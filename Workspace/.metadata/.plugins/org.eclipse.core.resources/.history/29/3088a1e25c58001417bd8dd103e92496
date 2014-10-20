@@ -66,7 +66,7 @@ public class AnuncioRest {
 		return response;
 	}
 	
-	public AtribuirRatingOfertaResponse AtribuirRatingPara(String consumidorId,String produtoId, String rating){
+	public AtribuirRatingOfertaResponse AtribuirRatingPara(String consumidorId,String produtoId, Float rating){
 		final String route = "AtribuirRatingPara";
 		String uri = this.urlServerBase + route;
 		
@@ -75,14 +75,15 @@ public class AnuncioRest {
 		AtribuirRatingOfertaRequest request = new AtribuirRatingOfertaRequest();
 		request.setConsumidorId(consumidorId);
 		request.setProdutoId(produtoId);
-		request.setRating(rating);
+		request.setRating(String.valueOf(rating));
 		
 		JSONSerializer jsonSerializer = new JSONSerializer();
 		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
 		
 		Log.i("uri", uri );
 		Log.i("jsonRequest", requestJson );
-		  
+		
+		HttpURLConnection urlConnection = null;  
 		try{
 			//Conexão
 			RestHelper restHelper = new RestHelper();
