@@ -1,0 +1,98 @@
+package com.secondfloor.services;
+
+import java.net.HttpURLConnection;
+import android.util.Log;
+
+import com.secondfloor.messages.AtribuirRatingOfertaRequest;
+import com.secondfloor.messages.AtribuirRatingOfertaResponse;
+import com.secondfloor.messages.EncontrarOfertaRequest;
+import com.secondfloor.messages.EncontrarOfertaResponse;
+
+import flexjson.JSONDeserializer;
+import flexjson.JSONSerializer;
+
+public class AnuncioService {
+	private String urlServerBase;
+	
+	public AnuncioService()
+	{
+		urlServerBase ="http://10.0.2.2:8080/web/";
+		//urlServerBase = "http://localhost:1886/Service.svc/web/";
+	}
+	
+	public EncontrarOfertaResponse EncontrarOfertasPorNomeProduto(String nomeProduto)
+	{
+		final String route = "EncontrarOfertaPor";
+		String uri = this.urlServerBase + route;
+		
+		EncontrarOfertaResponse response = new EncontrarOfertaResponse();
+		
+		EncontrarOfertaRequest request = new EncontrarOfertaRequest();
+		request.setProduto(nomeProduto);
+		//request.setBairro("bairro");
+		//request.setTipoProduto("tipoProduto");
+		
+		JSONSerializer jsonSerializer = new JSONSerializer();
+		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
+		
+		Log.i("uri", uri );
+		Log.i("jsonRequest", requestJson );
+		  
+		try{
+			CommunicationHelper communicationHelper = new CommunicationHelper();
+			CommunicationPostResult postResult = communicationHelper.sendPost(uri, requestJson);
+		    
+		    if(postResult.getHttpResult() == HttpURLConnection.HTTP_OK)
+		    {
+		        JSONDeserializer<EncontrarOfertaResponse> jsonDeserializer = new JSONDeserializer<EncontrarOfertaResponse>();
+		        jsonDeserializer.deserializeInto(postResult.getResponseJson(), response);
+		        
+		    }
+		}
+		catch (Exception e) 
+		{
+			Log.e("AnuncioRest.EncontrarOfertasPorNomeProduto", e.getMessage() );
+			e.printStackTrace();
+		}
+		
+		return response;
+	}
+	
+	public AtribuirRatingOfertaResponse AtribuirRatingPara(String consumidorId,String produtoId, String rating){
+		final String route = "AtribuirRatingPara";
+		String uri = this.urlServerBase + route;
+		
+		AtribuirRatingOfertaResponse response = new AtribuirRatingOfertaResponse();
+		
+		AtribuirRatingOfertaRequest request = new AtribuirRatingOfertaRequest();
+		request.setConsumidorId(consumidorId);
+		request.setProdutoId(produtoId);
+		request.setRating(rating);
+		
+		JSONSerializer jsonSerializer = new JSONSerializer();
+		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
+		
+		Log.i("uri", uri );
+		Log.i("jsonRequest", requestJson );
+		  
+		try{
+			//Conexão
+			CommunicationHelper communicationHelper = new CommunicationHelper();
+			CommunicationPostResult postResult = communicationHelper.sendPost(uri, requestJson);
+		    
+		    if(postResult.getHttpResult() == HttpURLConnection.HTTP_OK)
+		    {
+		        JSONDeserializer<AtribuirRatingOfertaResponse> jsonDeserializer = new JSONDeserializer<AtribuirRatingOfertaResponse>();
+		        jsonDeserializer.deserializeInto(postResult.getResponseJson(), response);
+		    }
+		}
+		catch (Exception e) 
+		{
+			Log.e("AnuncioRest.AtribuirRatingPara", e.getMessage() );
+			e.printStackTrace();
+		}
+		
+		return response;
+	}
+
+}

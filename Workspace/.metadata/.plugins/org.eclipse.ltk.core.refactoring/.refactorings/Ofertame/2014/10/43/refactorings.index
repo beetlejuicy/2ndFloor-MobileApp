@@ -10,3 +10,8 @@
 1413780837610	Delete element
 1413781696903	Delete elements
 1413812183762	Convert local variable 'pAnuncio' to field
+1413820632556	Delete element
+1413821868492	Rename package 'com.secondfloor.servicesRest'
+1413821974766	Rename type 'AnuncioRest'
+1413822559049	Rename type 'RestHelper'
+1413822579093	Rename type 'RestPostResult'

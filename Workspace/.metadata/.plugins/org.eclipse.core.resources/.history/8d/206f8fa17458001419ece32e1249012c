@@ -7,7 +7,7 @@ import com.secondfloor.dto.extend.OfertaDTOExtends;
 import com.secondfloor.messages.EncontrarOfertaResponse;
 import com.secondfloor.model.Anuncio;
 import com.secondfloor.ofertame.AnuncioAdapter;
-import com.secondfloor.services.AnuncioService;
+import com.secondfloor.servicesRest.AnuncioRest;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -41,7 +41,7 @@ public class BuscaOfertasTask extends AsyncTask<String, Double, EncontrarOfertaR
 		EncontrarOfertaResponse response = null;
 		
 		try {
-			response = new AnuncioService().EncontrarOfertasPorNomeProduto(titulo);
+			response = new AnuncioRest().EncontrarOfertasPorNomeProduto(titulo);
 		} catch (Exception e) {
 			Log.e("BuscaOfertasTask.doInBackground.Exception", e.getMessage());
 		}
