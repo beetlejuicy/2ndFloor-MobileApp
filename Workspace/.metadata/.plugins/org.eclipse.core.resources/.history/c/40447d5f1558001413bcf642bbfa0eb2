@@ -1,0 +1,12 @@
+package com.secondfloor.servicesRest;
+
+import java.net.HttpURLConnection;
+
+public class RestHelper {
+	public static HttpURLConnection sendPost()
+	{
+		HttpURLConnection urlConnection=null;
+		
+		return urlConnection;
+	}
+}

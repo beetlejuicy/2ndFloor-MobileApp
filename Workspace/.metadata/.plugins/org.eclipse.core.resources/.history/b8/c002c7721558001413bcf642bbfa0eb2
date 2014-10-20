@@ -1,0 +1,21 @@
+package com.secondfloor.servicesRest;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class RestHelper {
+	public static HttpURLConnection sendPost(String uri,)
+	{
+		HttpURLConnection urlConnection=null;
+		URL url = new URL(uri);  
+	    urlConnection = (HttpURLConnection) url.openConnection();
+	    urlConnection.setDoOutput(true);   
+	    urlConnection.setRequestMethod("POST");  
+	    urlConnection.setUseCaches(false);  
+	    urlConnection.setConnectTimeout(10000);  
+	    urlConnection.setReadTimeout(10000);  
+	    urlConnection.setRequestProperty("Content-Type","application/json; charset=utf-8");	
+	    
+		return urlConnection;
+	}
+}

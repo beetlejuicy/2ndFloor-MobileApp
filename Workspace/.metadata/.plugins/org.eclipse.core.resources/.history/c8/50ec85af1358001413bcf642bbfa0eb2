@@ -85,49 +85,4 @@ public class EncontrarOfertaRequest  implements java.io.Serializable {
     public void setTipoProduto(java.lang.String tipoProduto) {
         this.tipoProduto = tipoProduto;
     }
-
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof EncontrarOfertaRequest)) return false;
-        EncontrarOfertaRequest other = (EncontrarOfertaRequest) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this.bairro==null && other.getBairro()==null) || 
-             (this.bairro!=null &&
-              this.bairro.equals(other.getBairro()))) &&
-            ((this.produto==null && other.getProduto()==null) || 
-             (this.produto!=null &&
-              this.produto.equals(other.getProduto()))) &&
-            ((this.tipoProduto==null && other.getTipoProduto()==null) || 
-             (this.tipoProduto!=null &&
-              this.tipoProduto.equals(other.getTipoProduto())));
-        __equalsCalc = null;
-        return _equals;
-    }
-
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (getBairro() != null) {
-            _hashCode += getBairro().hashCode();
-        }
-        if (getProduto() != null) {
-            _hashCode += getProduto().hashCode();
-        }
-        if (getTipoProduto() != null) {
-            _hashCode += getTipoProduto().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
 }

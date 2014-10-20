@@ -46,7 +46,7 @@ public class AnuncioRest {
 		Log.i("uri", uri );
 		Log.i("jsonRequest", requestJson );
 				
-		HttpURLConnection urlConnection = null;  
+		HttpURLConnection urlConnection=null;  
 		try{
 			//Conexão
 			RestHelper restHelper = new RestHelper();
@@ -54,7 +54,6 @@ public class AnuncioRest {
 
 		    int HttpResult = urlConnection.getResponseCode();
 		    Log.i("HttpResult", String.valueOf(HttpResult));
-		    
 		    if(HttpResult == HttpURLConnection.HTTP_OK)
 		    {
 		    	InputStreamReader reader = new InputStreamReader(urlConnection.getInputStream());

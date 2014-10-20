@@ -1,0 +1,5 @@
+package com.secondfloor.servicesRest;
+
+public class RestHelper {
+
+}

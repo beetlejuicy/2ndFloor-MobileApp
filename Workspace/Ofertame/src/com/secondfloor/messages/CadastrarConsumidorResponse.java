@@ -1,5 +1,5 @@
 /**
- * AtribuirRatingOfertaResponse.java
+ * CadastrarConsumidorResponse.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
@@ -7,24 +7,28 @@
 
 package com.secondfloor.messages;
 
-public class AtribuirRatingOfertaResponse  implements java.io.Serializable {
+public class CadastrarConsumidorResponse  implements java.io.Serializable {
     private java.lang.String message;
 
     private java.lang.Boolean success;
 
-    public AtribuirRatingOfertaResponse() {
+    private java.lang.String token;
+
+    public CadastrarConsumidorResponse() {
     }
 
-    public AtribuirRatingOfertaResponse(
+    public CadastrarConsumidorResponse(
            java.lang.String message,
-           java.lang.Boolean success) {
+           java.lang.Boolean success,
+           java.lang.String token) {
            this.message = message;
            this.success = success;
+           this.token = token;
     }
 
 
     /**
-     * Gets the message value for this AtribuirRatingOfertaResponse.
+     * Gets the message value for this CadastrarConsumidorResponse.
      * 
      * @return message
      */
@@ -34,7 +38,7 @@ public class AtribuirRatingOfertaResponse  implements java.io.Serializable {
 
 
     /**
-     * Sets the message value for this AtribuirRatingOfertaResponse.
+     * Sets the message value for this CadastrarConsumidorResponse.
      * 
      * @param message
      */
@@ -44,7 +48,7 @@ public class AtribuirRatingOfertaResponse  implements java.io.Serializable {
 
 
     /**
-     * Gets the success value for this AtribuirRatingOfertaResponse.
+     * Gets the success value for this CadastrarConsumidorResponse.
      * 
      * @return success
      */
@@ -54,7 +58,7 @@ public class AtribuirRatingOfertaResponse  implements java.io.Serializable {
 
 
     /**
-     * Sets the success value for this AtribuirRatingOfertaResponse.
+     * Sets the success value for this CadastrarConsumidorResponse.
      * 
      * @param success
      */
@@ -62,10 +66,30 @@ public class AtribuirRatingOfertaResponse  implements java.io.Serializable {
         this.success = success;
     }
 
+
+    /**
+     * Gets the token value for this CadastrarConsumidorResponse.
+     * 
+     * @return token
+     */
+    public java.lang.String getToken() {
+        return token;
+    }
+
+
+    /**
+     * Sets the token value for this CadastrarConsumidorResponse.
+     * 
+     * @param token
+     */
+    public void setToken(java.lang.String token) {
+        this.token = token;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof AtribuirRatingOfertaResponse)) return false;
-        AtribuirRatingOfertaResponse other = (AtribuirRatingOfertaResponse) obj;
+        if (!(obj instanceof CadastrarConsumidorResponse)) return false;
+        CadastrarConsumidorResponse other = (CadastrarConsumidorResponse) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -79,7 +103,10 @@ public class AtribuirRatingOfertaResponse  implements java.io.Serializable {
               this.message.equals(other.getMessage()))) &&
             ((this.success==null && other.getSuccess()==null) || 
              (this.success!=null &&
-              this.success.equals(other.getSuccess())));
+              this.success.equals(other.getSuccess()))) &&
+            ((this.token==null && other.getToken()==null) || 
+             (this.token!=null &&
+              this.token.equals(other.getToken())));
         __equalsCalc = null;
         return _equals;
     }
@@ -96,6 +123,9 @@ public class AtribuirRatingOfertaResponse  implements java.io.Serializable {
         }
         if (getSuccess() != null) {
             _hashCode += getSuccess().hashCode();
+        }
+        if (getToken() != null) {
+            _hashCode += getToken().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;

@@ -1,0 +1,8 @@
+package com.secondfloor.servicesRest;
+
+public class RestHelper {
+	public static HttpURLConnection sendPost()
+	{
+		
+	}
+}

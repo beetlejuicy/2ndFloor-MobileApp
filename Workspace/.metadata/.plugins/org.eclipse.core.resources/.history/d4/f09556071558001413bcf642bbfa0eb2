@@ -40,21 +40,32 @@ public class AnuncioRest {
 		//request.setBairro("bairro");
 		//request.setTipoProduto("tipoProduto");
 		
+		//flexjson
 		JSONSerializer jsonSerializer = new JSONSerializer();
-		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
+		String requestStr = jsonSerializer.exclude("*.class").deepSerialize(request);
 		
 		Log.i("uri", uri );
-		Log.i("jsonRequest", requestJson );
+		Log.i("jsonRequest", requestStr );
 				
-		HttpURLConnection urlConnection = null;  
+		HttpURLConnection urlConnection=null;  
 		try{
-			//Conexão
-			RestHelper restHelper = new RestHelper();
-			urlConnection = restHelper.sendPost(uri, requestJson);
-
+			//Connexao
+			URL url = new URL(uri);  
+		    urlConnection = (HttpURLConnection) url.openConnection();
+		    urlConnection.setDoOutput(true);   
+		    urlConnection.setRequestMethod("POST");  
+		    urlConnection.setUseCaches(false);  
+		    urlConnection.setConnectTimeout(10000);  
+		    urlConnection.setReadTimeout(10000);  
+		    urlConnection.setRequestProperty("Content-Type","application/json; charset=utf-8");	
+		    
+		    DataOutputStream wr = new DataOutputStream(urlConnection.getOutputStream());
+		    wr.writeBytes(requestStr);
+		    wr.flush();
+		    wr.close();
+		    
 		    int HttpResult = urlConnection.getResponseCode();
 		    Log.i("HttpResult", String.valueOf(HttpResult));
-		    
 		    if(HttpResult == HttpURLConnection.HTTP_OK)
 		    {
 		    	InputStreamReader reader = new InputStreamReader(urlConnection.getInputStream());
@@ -73,8 +84,18 @@ public class AnuncioRest {
 		        jsonDeserializer.deserializeInto(sb.toString(), response);
 		        Log.i("responseJson", sb.toString());
 		    }
-		}
-		catch (Exception e) 
+		} 
+		catch(MalformedURLException e)
+		{
+			Log.e("MalformedURLException", e.getMessage() );
+			e.printStackTrace();  
+		} 
+		catch (ProtocolException e) 
+		{
+			Log.e("ProtocolException", e.getMessage() );
+			e.printStackTrace();
+		} 
+		catch (IOException e) 
 		{
 			Log.e("IOException", e.getMessage() );
 			e.printStackTrace();
@@ -89,8 +110,6 @@ public class AnuncioRest {
 	
 	public AtribuirRatingOfertaResponse AtribuirRatingPara(String consumidorId,String produtoId, Float rating){
 		AtribuirRatingOfertaResponse response = new AtribuirRatingOfertaResponse();
-		
-		
 		
 		return response;
 	}
