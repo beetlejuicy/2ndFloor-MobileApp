@@ -1,0 +1,22 @@
+package com.secondfloor.services;
+
+import com.secondfloor.messages.CadastrarConsumidorResponse;
+import com.secondfloor.messages.LogonConsumidorResponse;
+import com.secondfloor.model.enums.TipoAcesso;
+
+public class SegurancaService {
+	public CadastrarConsumidorResponse CadastrarConsumidor(String email, String nome)
+	{
+		CadastrarConsumidorResponse response = new CadastrarConsumidorResponse();
+		
+		return response;
+	}
+	
+	public LogonConsumidorResponse LogonConsumidor(String email,String senha, TipoAcesso tipoAcesso)
+	{
+		LogonConsumidorResponse response = new LogonConsumidorResponse();
+		
+		return response;
+	}
+
+}

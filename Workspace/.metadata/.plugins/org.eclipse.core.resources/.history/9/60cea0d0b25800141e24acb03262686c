@@ -76,6 +76,7 @@ public class AnuncioService {
 		Log.i("jsonRequest", requestJson );
 		  
 		try{
+			//Conexão
 			CommunicationHelper communicationHelper = new CommunicationHelper();
 			CommunicationPostResult postResult = communicationHelper.sendPost(uri, requestJson);
 		    

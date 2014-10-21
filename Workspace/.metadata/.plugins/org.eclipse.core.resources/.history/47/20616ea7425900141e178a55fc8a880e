@@ -1,36 +1,66 @@
 package com.secondfloor.services;
 
 import java.net.HttpURLConnection;
+
 import android.util.Log;
 
-import com.secondfloor.messages.AtribuirRatingOfertaRequest;
-import com.secondfloor.messages.AtribuirRatingOfertaResponse;
-import com.secondfloor.messages.EncontrarOfertaRequest;
+import com.secondfloor.messages.CadastrarConsumidorRequest;
+import com.secondfloor.messages.CadastrarConsumidorResponse;
 import com.secondfloor.messages.EncontrarOfertaResponse;
+import com.secondfloor.messages.LogonConsumidorRequest;
+import com.secondfloor.messages.LogonConsumidorResponse;
+import com.secondfloor.model.enums.TipoAcesso;
 
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 
-public class AnuncioService {
+public class SegurancaService {
 	private String urlServerBase;
-	
-	public AnuncioService()
-	{
+
+	public SegurancaService(){
 		urlServerBase ="http://10.0.2.2:8080/web/";
 		//urlServerBase = "http://localhost:1886/Service.svc/web/";
 	}
 	
-	public EncontrarOfertaResponse EncontrarOfertasPorNomeProduto(String nomeProduto)
+	public CadastrarConsumidorResponse CadastrarConsumidor(String email, String nome)
 	{
 		final String route = "EncontrarOfertaPor";
 		String uri = this.urlServerBase + route;
+		CadastrarConsumidorResponse response = new CadastrarConsumidorResponse();
+		CadastrarConsumidorRequest request = new CadastrarConsumidorRequest();
 		
-		EncontrarOfertaResponse response = new EncontrarOfertaResponse();
+		JSONSerializer jsonSerializer = new JSONSerializer();
+		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
 		
-		EncontrarOfertaRequest request = new EncontrarOfertaRequest();
-		request.setProduto(nomeProduto);
-		//request.setBairro("bairro");
-		//request.setTipoProduto("tipoProduto");
+		Log.i("uri", uri );
+		Log.i("jsonRequest", requestJson );
+		  
+		try{
+			CommunicationHelper communicationHelper = new CommunicationHelper();
+			CommunicationPostResult postResult = communicationHelper.sendPost(uri, requestJson);
+		    
+		    if(postResult.getHttpResult() == HttpURLConnection.HTTP_OK)
+		    {
+		        JSONDeserializer<CadastrarConsumidorResponse> jsonDeserializer = new JSONDeserializer<CadastrarConsumidorResponse>();
+		        jsonDeserializer.deserializeInto(postResult.getResponseJson(), response);
+		        
+		    }
+		}
+		catch (Exception e) 
+		{
+			Log.e("AnuncioRest.EncontrarOfertasPorNomeProduto", e.getMessage() );
+			e.printStackTrace();
+		}
+		
+		return response;
+	}
+	
+	public LogonConsumidorResponse LogonConsumidor(String email,String senha, TipoAcesso tipoAcesso)
+	{
+		final String route = "EncontrarOfertaPor";
+		String uri = this.urlServerBase + route;
+		LogonConsumidorResponse response = new LogonConsumidorResponse();
+		LogonConsumidorRequest request = new LogonConsumidorRequest();
 		
 		JSONSerializer jsonSerializer = new JSONSerializer();
 		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
@@ -54,43 +84,6 @@ public class AnuncioService {
 			Log.e("AnuncioRest.EncontrarOfertasPorNomeProduto", e.getMessage() );
 			e.printStackTrace();
 		}
-		
-		return response;
-	}
-	
-	public AtribuirRatingOfertaResponse AtribuirRatingPara(String consumidorId,String produtoId, String rating){
-		final String route = "AtribuirRatingPara";
-		String uri = this.urlServerBase + route;
-		
-		AtribuirRatingOfertaResponse response = new AtribuirRatingOfertaResponse();
-		
-		AtribuirRatingOfertaRequest request = new AtribuirRatingOfertaRequest();
-		request.setConsumidorId(consumidorId);
-		request.setProdutoId(produtoId);
-		request.setRating(rating);
-		
-		JSONSerializer jsonSerializer = new JSONSerializer();
-		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
-		
-		Log.i("uri", uri );
-		Log.i("jsonRequest", requestJson );
-		  
-		try{
-			CommunicationHelper communicationHelper = new CommunicationHelper();
-			CommunicationPostResult postResult = communicationHelper.sendPost(uri, requestJson);
-		    
-		    if(postResult.getHttpResult() == HttpURLConnection.HTTP_OK)
-		    {
-		        JSONDeserializer<AtribuirRatingOfertaResponse> jsonDeserializer = new JSONDeserializer<AtribuirRatingOfertaResponse>();
-		        jsonDeserializer.deserializeInto(postResult.getResponseJson(), response);
-		    }
-		}
-		catch (Exception e) 
-		{
-			Log.e("AnuncioRest.AtribuirRatingPara", e.getMessage() );
-			e.printStackTrace();
-		}
-		
 		return response;
 	}
 

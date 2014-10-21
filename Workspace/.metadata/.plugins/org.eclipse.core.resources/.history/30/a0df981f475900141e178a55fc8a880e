@@ -1,0 +1,7 @@
+package com.secondfloor.ofertame.task;
+
+import android.os.AsyncTask;
+
+public class LogonConsumidorTaks extends AsyncTask<String,Double,LogonConsumidorResponse>{
+
+}

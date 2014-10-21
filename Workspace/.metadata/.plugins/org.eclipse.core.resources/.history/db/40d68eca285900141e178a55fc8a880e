@@ -1,0 +1,15 @@
+package com.secondfloor.services;
+
+import com.secondfloor.messages.CadastrarConsumidorResponse;
+
+public class SegurancaService {
+	public CadastrarConsumidorResponse CadastrarConsumidor(String email, String nome)
+	{
+		CadastrarConsumidorResponse response = new CadastrarConsumidorResponse();
+		
+		return response;
+	}
+	
+	//public LogonConsumidorResponse 
+
+}

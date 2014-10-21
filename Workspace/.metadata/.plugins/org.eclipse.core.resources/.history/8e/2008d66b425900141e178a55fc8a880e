@@ -1,0 +1,32 @@
+package com.secondfloor.services;
+
+import com.secondfloor.messages.CadastrarConsumidorResponse;
+import com.secondfloor.messages.LogonConsumidorResponse;
+import com.secondfloor.model.enums.TipoAcesso;
+
+public class SegurancaService {
+	private String urlServerBase;
+
+	public SegurancaService(){
+		urlServerBase ="http://10.0.2.2:8080/web/";
+		//urlServerBase = "http://localhost:1886/Service.svc/web/";
+	}
+	public CadastrarConsumidorResponse CadastrarConsumidor(String email, String nome)
+	{
+		final String route = "EncontrarOfertaPor";
+		String uri = this.urlServerBase + route;
+		CadastrarConsumidorResponse response = new CadastrarConsumidorResponse();
+		
+		return response;
+	}
+	
+	public LogonConsumidorResponse LogonConsumidor(String email,String senha, TipoAcesso tipoAcesso)
+	{
+		final String route = "EncontrarOfertaPor";
+		String uri = this.urlServerBase + route;
+		LogonConsumidorResponse response = new LogonConsumidorResponse();
+		
+		return response;
+	}
+
+}

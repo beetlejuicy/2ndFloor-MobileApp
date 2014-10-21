@@ -16,8 +16,8 @@ public class AnuncioService {
 	
 	public AnuncioService()
 	{
-		urlServerBase ="http://10.0.2.2:8080/web/";
-		//urlServerBase = "http://localhost:1886/Service.svc/web/";
+		//urlServerBase ="http://10.0.2.2:8080/web/";
+		urlServerBase = "http://localhost:1886/Service.svc/web/";
 	}
 	
 	public EncontrarOfertaResponse EncontrarOfertasPorNomeProduto(String nomeProduto)
@@ -76,6 +76,7 @@ public class AnuncioService {
 		Log.i("jsonRequest", requestJson );
 		  
 		try{
+			//Conexão
 			CommunicationHelper communicationHelper = new CommunicationHelper();
 			CommunicationPostResult postResult = communicationHelper.sendPost(uri, requestJson);
 		    

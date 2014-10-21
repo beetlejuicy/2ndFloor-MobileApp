@@ -1,0 +1,5 @@
+package com.secondfloor.services;
+
+public class SegurancaService {
+
+}

@@ -53,4 +53,5 @@
 <fullyQualifiedTypeName name="com.secondfloor.messages.AtribuirRatingOfertaResponse"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="com.secondfloor.ofertame.task.RatingOfertaTask"/>
+<fullyQualifiedTypeName name="com.secondfloor.messages.CadastrarConsumidorResponse"/>
 </qualifiedTypeNameHistroy>
