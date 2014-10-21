@@ -8,6 +8,7 @@ import com.secondfloor.messages.CadastrarConsumidorRequest;
 import com.secondfloor.messages.CadastrarConsumidorResponse;
 import com.secondfloor.messages.LogonConsumidorRequest;
 import com.secondfloor.messages.LogonConsumidorResponse;
+import com.secondfloor.model.enums.TipoAcesso;
 
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;

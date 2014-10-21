@@ -1,12 +1,14 @@
 package com.secondfloor.ofertame.task;
 
+import com.secondfloor.messages.AtribuirRatingOfertaResponse;
 import com.secondfloor.messages.CadastrarConsumidorResponse;
+import com.secondfloor.services.AnuncioService;
 import com.secondfloor.services.SegurancaService;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class CadastrarConsumidorTask extends AsyncTask<String,Double,CadastrarConsumidorResponse> {
+public class  extends AsyncTask<String,Double,CadastrarConsumidorResponse> {
 
 	@Override
 	protected CadastrarConsumidorResponse doInBackground(String... params) {

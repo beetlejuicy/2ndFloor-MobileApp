@@ -1,5 +1,6 @@
 package com.secondfloor.ofertame.task;
 
+import com.secondfloor.messages.CadastrarConsumidorResponse;
 import com.secondfloor.messages.LogonConsumidorResponse;
 import com.secondfloor.services.SegurancaService;
 

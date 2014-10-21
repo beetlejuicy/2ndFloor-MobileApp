@@ -1,6 +1,8 @@
 package com.secondfloor.ofertame.task;
 
+import com.secondfloor.messages.AtribuirRatingOfertaResponse;
 import com.secondfloor.messages.CadastrarConsumidorResponse;
+import com.secondfloor.services.AnuncioService;
 import com.secondfloor.services.SegurancaService;
 
 import android.os.AsyncTask;

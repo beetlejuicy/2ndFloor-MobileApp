@@ -8,6 +8,7 @@ import com.secondfloor.messages.CadastrarConsumidorRequest;
 import com.secondfloor.messages.CadastrarConsumidorResponse;
 import com.secondfloor.messages.LogonConsumidorRequest;
 import com.secondfloor.messages.LogonConsumidorResponse;
+import com.secondfloor.model.enums.TipoAcesso;
 
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
@@ -20,7 +21,7 @@ public class SegurancaService {
 		//urlServerBase = "http://localhost:1886/Service.svc/web/";
 	}
 	
-	public CadastrarConsumidorResponse CadastrarConsumidor(String email, String nome, String tipoAcesso)
+	public CadastrarConsumidorResponse CadastrarConsumidor(String email, String nome, TipoAcesso tipoAcesso)
 	{
 		final String route = "EncontrarOfertaPor";
 		String uri = this.urlServerBase + route;
@@ -28,7 +29,7 @@ public class SegurancaService {
 		CadastrarConsumidorRequest request = new CadastrarConsumidorRequest();
 		request.setEmail(email);
 		request.setNome(nome);
-		//request.setTipoAcesso(tipoAcesso);
+		//request.setTipoAcesso(String.valueOf(tipoAcesso.ordinal()));
 		
 		JSONSerializer jsonSerializer = new JSONSerializer();
 		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
