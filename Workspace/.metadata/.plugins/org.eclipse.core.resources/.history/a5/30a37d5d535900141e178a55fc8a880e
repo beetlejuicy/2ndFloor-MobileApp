@@ -3,23 +3,16 @@ package com.secondfloor.ofertame.task;
 import com.secondfloor.messages.LogonConsumidorResponse;
 import com.secondfloor.services.SegurancaService;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 
 public class LogonConsumidorTaks extends AsyncTask<String,Double,LogonConsumidorResponse>{
-	private Activity context;
 
-	public LogonConsumidorTaks(Activity context)
-	{
-		this.context = context;
-	}
-	
 	@Override
 	protected LogonConsumidorResponse doInBackground(String... params) {
 		LogonConsumidorResponse response = null;
 		
-		Log.i("LogonConsumidor", "Inicia thread" );
+		Log.i("CadastrarConsumidor", "Inicia thread" );
 		try {
 			String email = params[0];
 			String senha = params[1];

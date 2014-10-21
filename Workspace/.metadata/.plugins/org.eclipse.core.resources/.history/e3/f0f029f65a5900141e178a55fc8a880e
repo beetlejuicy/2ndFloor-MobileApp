@@ -3,18 +3,11 @@ package com.secondfloor.ofertame.task;
 import com.secondfloor.messages.CadastrarConsumidorResponse;
 import com.secondfloor.services.SegurancaService;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 
 public class CadastrarConsumidorTask extends AsyncTask<String,Double,CadastrarConsumidorResponse> {
 
-	private Activity context;
-	
-	public CadastrarConsumidorTask(Activity context){
-		this.context = context;
-		
-	}
 	@Override
 	protected CadastrarConsumidorResponse doInBackground(String... params) {
 		CadastrarConsumidorResponse response = null;

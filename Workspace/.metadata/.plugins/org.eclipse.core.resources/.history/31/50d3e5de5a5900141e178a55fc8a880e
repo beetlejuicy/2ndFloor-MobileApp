@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 public class LogonConsumidorTaks extends AsyncTask<String,Double,LogonConsumidorResponse>{
+
 	private Activity context;
 
 	public LogonConsumidorTaks(Activity context)
