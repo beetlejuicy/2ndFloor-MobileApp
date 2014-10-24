@@ -100,4 +100,5 @@ public class AtribuirRatingOfertaResponse  implements java.io.Serializable {
         __hashCodeCalc = false;
         return _hashCode;
     }
+
 }

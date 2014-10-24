@@ -18,6 +18,7 @@ public class OfertaDTOExtends {
 		try {
 			for (OfertaDTO oferta : ofertas) {
 				Anuncio anuncio = new Anuncio();
+				anuncio.setId(oferta.getOfertaId());
 				anuncio.setTitulo(oferta.getNomeProduto());
 				anuncio.setAnunciante(oferta.getAnuncianteRazaoSocial());
 				
@@ -34,7 +35,7 @@ public class OfertaDTOExtends {
 				else
 					anuncio.setPreco(0f);
 				
-				// anuncio.setDataOferta(dataOferta);
+				anuncio.setDataOferta(oferta.getDataInicio() + " " + oferta.getDataFim());
 				anuncios.add(anuncio);
 			}
 		} catch (Exception e) {
@@ -55,12 +56,12 @@ public class OfertaDTOExtends {
 				sb.append(" - " + oferta.getComplemento() + " ");
 			}
 			sb.append(oferta.getBairro() + " - ");
-			sb.append(oferta.getCidade() + " - ");
+			//sb.append(oferta.getCidade() + " - ");
 			if (oferta.getEstado() != null && !StringUtil.isNullOrWhiteSpace(oferta.getEstado().getSigla())) 
 			{
 				sb.append(oferta.getEstado().getSigla() + " - ");
 			}
-			sb.append("CEP: " + oferta.getCep());
+			//sb.append("CEP: " + oferta.getCep());
 		}
 		return sb.toString();
 	}

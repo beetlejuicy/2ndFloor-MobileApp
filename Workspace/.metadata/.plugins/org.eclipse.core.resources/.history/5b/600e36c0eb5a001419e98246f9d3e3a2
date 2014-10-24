@@ -1,0 +1,28 @@
+package com.secondfloor.infrastructure;
+
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.util.Log;
+
+public class MyPreferences {
+	private static final String PRF_OFT_SEC = "com.secondfloor.ofertame";
+	private Activity contexto;
+	private SharedPreferences sp;
+	
+	public MyPreferences(Activity contexto)
+	{
+		Log.i("Abrindo", "Preferencias do app..");
+		this.contexto = contexto;
+		this.contexto.getSharedPreferences(PRF_OFT_SEC, this.contexto.MODE_PRIVATE);
+	}
+	
+	public String getUserToken() {
+		return sp.getString("userToken", "");
+	}
+
+	public void setUserToken(String userToken) {
+		sp.edit().putString("userToken", userToken);
+		sp.edit().commit();
+	}
+
+}

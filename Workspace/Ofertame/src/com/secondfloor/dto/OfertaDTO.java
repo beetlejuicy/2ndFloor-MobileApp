@@ -22,6 +22,10 @@ public class OfertaDTO  implements java.io.Serializable {
 
     private java.lang.String complemento;
 
+    private java.lang.String dataFim;
+
+    private java.lang.String dataInicio;
+
     private java.lang.String descricao;
 
     private com.secondfloor.dto.EstadoDTO estado;
@@ -51,6 +55,8 @@ public class OfertaDTO  implements java.io.Serializable {
            java.lang.String cep,
            java.lang.String cidade,
            java.lang.String complemento,
+           java.lang.String dataFim,
+           java.lang.String dataInicio,
            java.lang.String descricao,
            com.secondfloor.dto.EstadoDTO estado,
            java.lang.String fabricante,
@@ -67,6 +73,8 @@ public class OfertaDTO  implements java.io.Serializable {
            this.cep = cep;
            this.cidade = cidade;
            this.complemento = complemento;
+           this.dataFim = dataFim;
+           this.dataInicio = dataInicio;
            this.descricao = descricao;
            this.estado = estado;
            this.fabricante = fabricante;
@@ -216,6 +224,46 @@ public class OfertaDTO  implements java.io.Serializable {
      */
     public void setComplemento(java.lang.String complemento) {
         this.complemento = complemento;
+    }
+
+
+    /**
+     * Gets the dataFim value for this OfertaDTO.
+     * 
+     * @return dataFim
+     */
+    public java.lang.String getDataFim() {
+        return dataFim;
+    }
+
+
+    /**
+     * Sets the dataFim value for this OfertaDTO.
+     * 
+     * @param dataFim
+     */
+    public void setDataFim(java.lang.String dataFim) {
+        this.dataFim = dataFim;
+    }
+
+
+    /**
+     * Gets the dataInicio value for this OfertaDTO.
+     * 
+     * @return dataInicio
+     */
+    public java.lang.String getDataInicio() {
+        return dataInicio;
+    }
+
+
+    /**
+     * Sets the dataInicio value for this OfertaDTO.
+     * 
+     * @param dataInicio
+     */
+    public void setDataInicio(java.lang.String dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
 
@@ -431,6 +479,12 @@ public class OfertaDTO  implements java.io.Serializable {
             ((this.complemento==null && other.getComplemento()==null) || 
              (this.complemento!=null &&
               this.complemento.equals(other.getComplemento()))) &&
+            ((this.dataFim==null && other.getDataFim()==null) || 
+             (this.dataFim!=null &&
+              this.dataFim.equals(other.getDataFim()))) &&
+            ((this.dataInicio==null && other.getDataInicio()==null) || 
+             (this.dataInicio!=null &&
+              this.dataInicio.equals(other.getDataInicio()))) &&
             ((this.descricao==null && other.getDescricao()==null) || 
              (this.descricao!=null &&
               this.descricao.equals(other.getDescricao()))) &&
@@ -490,6 +544,12 @@ public class OfertaDTO  implements java.io.Serializable {
         if (getComplemento() != null) {
             _hashCode += getComplemento().hashCode();
         }
+        if (getDataFim() != null) {
+            _hashCode += getDataFim().hashCode();
+        }
+        if (getDataInicio() != null) {
+            _hashCode += getDataInicio().hashCode();
+        }
         if (getDescricao() != null) {
             _hashCode += getDescricao().hashCode();
         }
@@ -520,4 +580,5 @@ public class OfertaDTO  implements java.io.Serializable {
         __hashCodeCalc = false;
         return _hashCode;
     }
+
 }

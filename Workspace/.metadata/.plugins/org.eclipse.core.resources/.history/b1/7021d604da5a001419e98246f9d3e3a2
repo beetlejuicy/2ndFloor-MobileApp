@@ -1,0 +1,5 @@
+package com.secondfloor.infrastructure;
+
+public class Preference {
+
+}

@@ -15,3 +15,18 @@
 1413821974766	Rename type 'AnuncioRest'
 1413822559049	Rename type 'RestHelper'
 1413822579093	Rename type 'RestPostResult'
+1414001899734	Encapsulate field 'tipoAcesso'
+1414021086664	Delete element
+1414021102230	Delete element
+1414069893401	Delete element
+1414069896072	Delete element
+1414069898648	Delete element
+1414070486333	Delete element
+1414072267170	Delete elements
+1414085201958	Encapsulate field 'userToken'
+1414086077041	Rename field 'etUserName'
+1414086082082	Rename field 'etPass'
+1414086366551	Rename field 'etEmail'
+1414086454240	Rename field 'btnCriar'
+1414088783842	Rename field 'etUserName'
+1414092522431	Rename type 'Preference'

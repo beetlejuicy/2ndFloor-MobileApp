@@ -1,5 +1,0 @@
-package com.secondfloor.repository;
-
-public interface RepositorioAnuncio {
-
-}

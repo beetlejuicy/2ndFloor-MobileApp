@@ -1,0 +1,19 @@
+package com.secondfloor.infrastructure;
+
+import android.content.SharedPreferences;
+
+public class Preference {
+	private static final String PRF_OFT_SEC = "OFERTAME_SEC";
+	
+	public String getUserToken() {
+		return userToken;
+	}
+
+	public void setUserToken(String userToken) {
+		SharedPreferences login = getSharedPreferences(PRF_OFT_SEC, 0);
+		SharedPreferences.Editor editor = login.edit();
+		editor.putString("userToken", userToken);
+		editor.commit();
+	}
+
+}

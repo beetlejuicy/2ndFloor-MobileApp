@@ -43,15 +43,6 @@
         android:layout_marginTop="19dp"
         android:text="Anunciante" />
 
-    <RatingBar
-        android:id="@+id/ratingDetalheAnunciante"
-        style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtDetalheAnunciante"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="32dp" />
-
     <TextView
         android:id="@+id/txtDetalheFornecedor"
         android:layout_width="wrap_content"
@@ -87,5 +78,13 @@
         android:layout_centerHorizontal="true"
         android:text="@string/lblQuestaoOferta"
         android:textColor="@android:color/holo_blue_dark" />
+
+    <RatingBar
+        android:id="@+id/ratingDetalheAnunciante"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtDetalheAnunciante"
+        android:layout_toRightOf="@+id/txtDetalheTitulo" />
 
 </RelativeLayout>

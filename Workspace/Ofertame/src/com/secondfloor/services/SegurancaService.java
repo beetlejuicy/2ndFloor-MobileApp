@@ -2,12 +2,14 @@ package com.secondfloor.services;
 
 import java.net.HttpURLConnection;
 
+import android.R.string;
 import android.util.Log;
 
 import com.secondfloor.messages.CadastrarConsumidorRequest;
 import com.secondfloor.messages.CadastrarConsumidorResponse;
 import com.secondfloor.messages.LogonConsumidorRequest;
 import com.secondfloor.messages.LogonConsumidorResponse;
+import com.secondfloor.model.Autenticacao;
 
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
@@ -20,15 +22,15 @@ public class SegurancaService {
 		//urlServerBase = "http://localhost:1886/Service.svc/web/";
 	}
 	
-	public CadastrarConsumidorResponse CadastrarConsumidor(String email, String nome, String tipoAcesso)
+	public CadastrarConsumidorResponse CadastrarConsumidor(Autenticacao autenticacao)
 	{
-		final String route = "EncontrarOfertaPor";
+		final String route = "CadastrarConsumidor";
 		String uri = this.urlServerBase + route;
 		CadastrarConsumidorResponse response = new CadastrarConsumidorResponse();
 		CadastrarConsumidorRequest request = new CadastrarConsumidorRequest();
-		request.setEmail(email);
-		request.setNome(nome);
-		//request.setTipoAcesso(tipoAcesso);
+		request.setEmail(autenticacao.getEmail());
+		request.setNome(autenticacao.getNome());
+		//request.setTipoAcesso(String.valueOf(autenticacao.getTipoAcesso().ordinal()));
 		
 		JSONSerializer jsonSerializer = new JSONSerializer();
 		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);
@@ -55,14 +57,14 @@ public class SegurancaService {
 		return response;
 	}
 	
-	public LogonConsumidorResponse LogonConsumidor(String email,String senha)
+	public LogonConsumidorResponse LogonConsumidor(Autenticacao autenticacao)
 	{
-		final String route = "EncontrarOfertaPor";
+		final String route = "LogonConsumidor";
 		String uri = this.urlServerBase + route;
 		LogonConsumidorResponse response = new LogonConsumidorResponse();
 		LogonConsumidorRequest request = new LogonConsumidorRequest();
-		request.setEmail(email);
-		request.setSenha(senha);
+		request.setEmail(autenticacao.getEmail());
+		request.setSenha(autenticacao.getSenha());
 		
 		JSONSerializer jsonSerializer = new JSONSerializer();
 		String requestJson = jsonSerializer.exclude("*.class").deepSerialize(request);

@@ -14,9 +14,13 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
         <activity android:name="com.secondfloor.ofertame.DetalheOferta" ></activity>
+        <activity android:name="com.secondfloor.ofertame.BuscaOfertas" ></activity>
+        <activity android:name="com.secondfloor.ofertame.SignInActivity" ></activity>
+        <activity android:name="com.secondfloor.ofertame.SignUpActivity" ></activity>
         <activity
-            android:name="com.secondfloor.ofertame.BuscaOfertas"
+            android:name="com.secondfloor.ofertame.MainActivity"
             android:label="@string/app_name" 
             android:permission="android.permission.INTERNET">
             <intent-filter>

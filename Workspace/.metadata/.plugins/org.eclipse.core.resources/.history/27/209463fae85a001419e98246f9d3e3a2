@@ -1,0 +1,52 @@
+package com.secondfloor.ofertame.task;
+
+import com.secondfloor.messages.LogonConsumidorResponse;
+import com.secondfloor.model.Autenticacao;
+import com.secondfloor.services.SegurancaService;
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.util.Log;
+
+public class LogonConsumidorTaks extends AsyncTask<Autenticacao,Double,LogonConsumidorResponse>{
+	private Activity context;
+
+	public LogonConsumidorTaks(Activity context)
+	{
+		this.context = context;
+	}
+	
+	@Override
+	protected LogonConsumidorResponse doInBackground(Autenticacao... params) {
+		LogonConsumidorResponse response = null;
+		
+		Log.i("LogonConsumidor", "Inicia thread" );
+		try {
+			Autenticacao autenticacao = params[0];
+			response = new SegurancaService().LogonConsumidor(autenticacao);
+			
+		} catch (Exception e) {
+			Log.e("LogonConsumidorTaks.doInBackground.Exception", e.getMessage());
+		}
+		Log.i("LogonConsumidorTaks.LogonConsumidor.Success", String.valueOf(response.getSuccess()));
+		return response;
+	}
+	
+	@Override
+	protected void onPostExecute(LogonConsumidorResponse result) {
+		if(result.getSuccess() == true)
+		{
+			
+		}
+		
+		
+	}
+	
+
+    
+	//public void trocaTela(){
+	//	Intent trocaTela = new Intent(SignInActivity.this, BuscaOfertas.class);
+	//	startActivity(trocaTela);
+	//}
+
+}

@@ -1,13 +1,20 @@
 package com.secondfloor.ofertame.task;
 
+import com.secondfloor.infrastructure.MyPreferences;
 import com.secondfloor.messages.CadastrarConsumidorResponse;
+import com.secondfloor.model.Autenticacao;
+import com.secondfloor.ofertame.BuscaOfertas;
 import com.secondfloor.services.SegurancaService;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.Preference;
 import android.util.Log;
+import android.widget.Toast;
 
-public class CadastrarConsumidorTask extends AsyncTask<String,Double,CadastrarConsumidorResponse> {
+public class CadastrarConsumidorTask extends AsyncTask<Autenticacao,Double,CadastrarConsumidorResponse> {
 
 	private Activity context;
 	
@@ -16,21 +23,41 @@ public class CadastrarConsumidorTask extends AsyncTask<String,Double,CadastrarCo
 		
 	}
 	@Override
-	protected CadastrarConsumidorResponse doInBackground(String... params) {
+	protected CadastrarConsumidorResponse doInBackground(Autenticacao... params) {
 		CadastrarConsumidorResponse response = null;
 		
 		Log.i("CadastrarConsumidor", "Inicia thread" );
 		try {
-			String email = params[0];
-			String nome = params[1];
-			String tipoAcesso = params[2];
-			
-			response = new SegurancaService().CadastrarConsumidor(email, nome, tipoAcesso);
+			Autenticacao autenticacao = params[0];
+						
+			response = new SegurancaService().CadastrarConsumidor(autenticacao);
 		} catch (Exception e) {
 			Log.e("CadastrarConsumidorTask.doInBackground.Exception", e.getMessage());
 		}
 		Log.i("CadastrarConsumidorTask.CadastrarConsumidor.Success", String.valueOf(response.getSuccess()));
 		return response;
+	}
+	
+	@Override
+	protected void onPostExecute(CadastrarConsumidorResponse result) {
+		if(result.getSuccess() == true){
+			Log.i("Succeso ao cadastrar", "Token: " + result.getToken());
+			
+			MyPreferences preference = new MyPreferences(this.context);
+			preference.setUserToken(result.getToken());
+			
+			goScreenBuscaOfertas();
+		}
+		else
+		{
+			Toast.makeText(this.context, result.getMessage(), Toast.LENGTH_LONG).show();
+			Log.e("Falhou ao cadastrar", result.getMessage());
+		}
+	}
+	
+	public void goScreenBuscaOfertas(){
+		Intent trocaTela = new Intent(this.context, BuscaOfertas.class);
+		this.context.startActivity(trocaTela);
 	}
 
 }

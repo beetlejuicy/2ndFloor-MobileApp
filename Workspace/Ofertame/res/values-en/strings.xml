@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">OfertaMe EUA-en</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <!-- android:text="Entrar" -->
+    <string name="txtSingIn">Sing In</string>
+    
+    <!-- android:text="Criar Conta" -->
+    <string name="txtSingUp">Sing Up</string>
+    
+    <!-- Produto -->
+    <string name="btnPesquisar">Search</string>
+	<string name="hintTxtPesquisarOferta">What are you looking for?</string>
+	<string name="lblTitulo">Title</string>
+	<string name="lblDataOferta">Date offer</string>
+	<string name="lblFornecedor">Provider</string>
+	<string name="lblAnunciante">Publisher</string>
+	<string name="lblClassificacaoAnunciante">Advertiser Rating</string>
+	<string name="lblQuestaoOferta">This offer is interesting?</string>
+	<string name="lblEndereco">Address</string>
+	<string name="msgFalhaDetalheOferta">Sorry there was a failure while attempting to load the data!</string>
+    
+	
+	<!-- Twitter -->
+	<string name="title_activity_twitter_android_login_main">OfertaMe</string>
+    <string name="twitter_icon_descr">Twitter icon</string>
+    <string name="twitter_login_text">Log in Twitter</string>
+    <string name="loged_text">Logged in Twitter as</string>
+    <string name="not_loged_text">Logged failed</string>
+    <string name="cancel_loged_text">Logged canceled</string>
+    <string name="login_picture_profile_desc">Picture profile</string>
+    <string name="login_result_username_text">Name:</string>
+
+	
+    <style name="ButtonText">
+	   <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">#ffffff</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:layout_margin">3dp</item>
+	    <item name="android:textStyle">normal</item>
+	    <item name="android:textSize">20sp</item>
+	    <item name="android:shadowColor">#000000</item>
+	    <item name="android:shadowDx">1</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowRadius">2</item>
+	</style>
+	
+    <style name="DefaultButtonText">
+	   <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">#979797</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:layout_margin">3dp</item>
+	    <item name="android:textStyle">normal</item>
+	    <item name="android:textSize">20sp</item>
+	    <item name="android:shadowColor">#000000</item>
+	    <item name="android:shadowDx">1</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowRadius">2</item>
+	</style>
+	
+</resources>

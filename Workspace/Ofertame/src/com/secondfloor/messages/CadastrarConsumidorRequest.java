@@ -100,4 +100,5 @@ public class CadastrarConsumidorRequest  implements java.io.Serializable {
         __hashCodeCalc = false;
         return _hashCode;
     }
+
 }
